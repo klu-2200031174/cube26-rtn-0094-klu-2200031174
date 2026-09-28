@@ -7,3 +7,5 @@
 | 2026-09-28 | First live Gemini runs: added retries/back-off and more fallback models after HTTP 503 (model overloaded); fail-open kept the case | Live test |
 | 2026-09-28 | Bug: completeness returned PASS (0/0) for a SKU missing from the catalogue -> now UNCERTAIN | Found in live earbuds test |
 | 2026-09-28 | New rule R09B: if unseen parts could change the disposition, send to review | Earbuds test: left earbud not verifiable while other parts missing |
+| 2026-09-28 | Consistency fix: same earphone photos gave DISPOSE once and RESTOCK once (model flipped between 'lightly used' and 'opened'). Hygiene rule R08 now keys on sealed vs not sealed | Live repeat test |
+| 2026-09-28 | Redesigned operator UI (decision pipeline, evidence links, record stats); household items added to catalogue | Usability |

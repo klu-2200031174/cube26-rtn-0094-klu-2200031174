@@ -110,7 +110,7 @@ python -m unittest discover -s tests -v
 
 ## Test inputs
 
-- `tests/test_agent.py` — 29 unit tests: all ten brief scenarios (with scripted model output), evidence guards, fail-open + retry, overrides, tenant isolation over the real HTTP API, rule-table determinism.
+- `tests/test_agent.py` — 31 unit tests: all ten brief scenarios (with scripted model output), evidence guards, fail-open + retry, overrides, tenant isolation over the real HTTP API, rule-table determinism.
 - `eval/` — held-out photo evaluation set, two-labeller labels and the harness (see `eval/README.md`). Results: `eval/results/report.md`.
 - `docs/sample_evidence_record.json` — an illustrative record (generated from scripted model output, not a real inspection).
 

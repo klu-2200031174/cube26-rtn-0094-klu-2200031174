@@ -1,5 +1,5 @@
 {
-  "version": "rules-2026-09-28b",
+  "version": "rules-2026-09-28c",
   "thresholds": {
     "identity_min_confidence": 0.75,
     "component_min_confidence": 0.7,
@@ -44,7 +44,7 @@
     {
       "id": "R08_HYGIENE_USED",
       "disposition": "dispose",
-      "when": "Hygiene-sensitive category (catalogue flag) showing any sign of use."
+      "when": "Hygiene-sensitive category (catalogue flag) that is no longer factory-sealed / New. Only sealed hygiene items are restocked; this avoids flipping between 'opened' and 'lightly used', which photos cannot separate reliably."
     },
     {
       "id": "R09_COMPLETENESS_UNCERTAIN",

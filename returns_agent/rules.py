@@ -21,6 +21,12 @@ def _used(f: dict[str, Any]) -> bool:
     return f["observed_state"] in ("signs_of_use", "damaged") or (f["grade_rank"] is not None and f["grade_rank"] < LIKE_NEW_RANK)
 
 
+def _sealed(f: dict[str, Any]) -> bool:
+    """Factory-sealed / New. Hygiene items are only restockable in this state, so the
+    decision does not hinge on the fuzzy line between 'opened' and 'lightly used'."""
+    return f["observed_state"] == "factory_sealed" or f["grade_rank"] == NEW_RANK
+
+
 PREDICATES: dict[str, Callable[[dict[str, Any]], bool]] = {
     "R01_MODEL_UNAVAILABLE": lambda f: f.get("model_failed", False),
     "R02_NO_USABLE_IMAGES": lambda f: f["usable_images"] == 0,
@@ -29,7 +35,7 @@ PREDICATES: dict[str, Callable[[dict[str, Any]], bool]] = {
     "R05_CONDITION_UNCERTAIN": lambda f: f["condition"] == UNCERTAIN,
     "R06_UNACCEPTABLE_SEVERE": lambda f: f["condition"] == FAIL and f["max_damage"] == "severe",
     "R07_UNACCEPTABLE": lambda f: f["condition"] == FAIL,
-    "R08_HYGIENE_USED": lambda f: f["hygiene_sensitive"] and _used(f),
+    "R08_HYGIENE_USED": lambda f: f["hygiene_sensitive"] and not _sealed(f),
     "R09_COMPLETENESS_UNCERTAIN": lambda f: f["completeness"] == UNCERTAIN,
     "R09B_UNVERIFIED_PARTS_MATTER": lambda f: _unverified_changes_outcome(f),
     "R10_MISSING_CORE_PART": lambda f: any(not m["replaceable"] for m in f["missing"]),

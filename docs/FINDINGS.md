@@ -36,7 +36,7 @@ Damaged units go to dispose (RTN-0021, RTN-0027, RTN-0099) or liquidate (RTN-003
 
 ## F6: Hygiene-sensitive items restocked after opening
 RTN-0016 (towel), RTN-0030 (face serum) and RTN-0081 (protein powder) are `opened_unused` → restock. Whether opened beauty or food items may be resold depends on marketplace category policy. The sample data is synthetic and cannot be treated as authoritative on this.
-**Handling:** the catalogue has a `hygiene_sensitive` flag. **Used** hygiene-sensitive items are disposed (R08). **Opened-but-unused** ones follow the normal grade rules. This is a policy assumption we made; it should be confirmed against the marketplace's category rules.
+**Handling:** the catalogue has a `hygiene_sensitive` flag. Hygiene-sensitive items are restocked **only if factory-sealed / New**; anything opened is disposed (R08). We first tried "dispose only if used", but in a live test the same photos of the same earphones were classed once as `signs_of_use` (DISPOSE) and once as `opened_unused` (RESTOCK). Photos cannot reliably separate "opened" from "lightly used", so the rule no longer depends on that line. This is a policy assumption to confirm against the marketplace's category rules.
 
 ## F7: Amazon's scale vs the brief's example
 Amazon's guidelines list "missing essential parts" as **unacceptable** for listing. The brief's example grades headphones with a missing USB cable as **Used - Good** and dispositions them **REFURBISH**.

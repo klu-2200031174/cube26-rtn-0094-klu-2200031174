@@ -92,7 +92,7 @@ These are evaluated in order, and the first match wins. The rule id and its text
 | R05 | condition UNCERTAIN | pending_review |
 | R06 | Unacceptable + severe damage | dispose |
 | R07 | Unacceptable (e.g. needs repair) | liquidate |
-| R08 | hygiene-sensitive SKU showing use | dispose |
+| R08 | hygiene-sensitive SKU that is not factory-sealed / New | dispose |
 | R09 | completeness UNCERTAIN | pending_review |
 | R09B | parts confirmed missing **and** others unseen, and the unseen ones would change the outcome | pending_review |
 | R10 | a non-replaceable part missing | liquidate |

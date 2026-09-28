@@ -312,6 +312,21 @@ class TestGeminiClient(unittest.TestCase):
             prov.inspect(reference.get_order(*ORDER_HEADPHONES), [img])
 
 
+class TestHygieneConsistency(unittest.TestCase):
+    def test_opened_or_used_hygiene_item_same_outcome(self):
+        base = {"usable_images": 1, "identity": "PASS", "completeness": "PASS", "missing": [], "condition": "PASS",
+                "grade": "Used - Like New", "grade_rank": 4, "max_damage": None, "hygiene_sensitive": True}
+        a = decide(dict(base, observed_state="opened_unused"))
+        b = decide(dict(base, observed_state="signs_of_use"))
+        self.assertEqual(a["disposition"], b["disposition"])
+        self.assertEqual(a["rule_id"], "R08_HYGIENE_USED")
+
+    def test_sealed_hygiene_item_restocked(self):
+        f = {"usable_images": 1, "identity": "PASS", "completeness": "PASS", "missing": [], "condition": "PASS",
+             "grade": "New", "grade_rank": 5, "observed_state": "factory_sealed", "max_damage": None, "hygiene_sensitive": True}
+        self.assertEqual(decide(f)["disposition"], "restock")
+
+
 class TestRulesTable(unittest.TestCase):
     def test_every_rule_has_predicate(self):
         ids = [r["id"] for r in reference.disposition_rules()["rules"]]

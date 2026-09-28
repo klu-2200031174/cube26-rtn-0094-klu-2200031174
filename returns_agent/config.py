@@ -54,7 +54,7 @@ class Settings:
                 org, tok = pair.split(":", 1)
                 if org.strip() and tok.strip():
                     tokens[tok.strip()] = org.strip()
-        fallbacks = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "").split(",") if m.strip()]
+        fallbacks = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "gemini-3.6-flash,gemini-3.5-flash-lite,gemini-3.1-flash-lite").split(",") if m.strip()]
         var_dir = Path(os.environ.get("VAR_DIR", str(ROOT / "var")))
         if not var_dir.is_absolute():
             var_dir = ROOT / var_dir
