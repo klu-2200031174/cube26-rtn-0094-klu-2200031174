@@ -75,17 +75,24 @@ class GeminiProvider(Provider):
         self.s = settings
         self._open = opener or urllib.request.urlopen
 
-    def _call(self, model: str, body: dict[str, Any]) -> dict[str, Any]:
+    def _call(self, model: str, body: dict[str, Any], timeout: float) -> dict[str, Any]:
         req = urllib.request.Request(
             GEMINI_URL.format(model=model),
             data=json.dumps(body).encode("utf-8"),
             headers={"Content-Type": "application/json", "x-goog-api-key": self.s.gemini_api_key},
             method="POST",
         )
-        with self._open(req, timeout=self.s.model_timeout_s) as resp:
+        with self._open(req, timeout=timeout) as resp:
             return json.loads(resp.read().decode("utf-8"))
 
     def inspect(self, order, images: list[ImageInput], operator_note: str = "") -> VLMResult:
+        """One logical inspection = one successful model call.
+
+        Latency is bounded: the whole attempt (all models, all retries) stops at
+        MODEL_BUDGET_S; each request is capped at MODEL_TIMEOUT_S. An overloaded
+        model is skipped straight away (the next model is often free) and only
+        retried in a second pass. When the budget runs out the caller fails open.
+        """
         images = [downscale(i, self.s.max_image_side) for i in images]
         parts: list[dict[str, Any]] = [{"text": build_prompt(order, len(images), operator_note)}]
         for idx, img in enumerate(images):
@@ -96,49 +103,55 @@ class GeminiProvider(Provider):
             "generationConfig": {"temperature": 0, "responseMimeType": "application/json"},
         }
         models = [self.s.gemini_model] + [m for m in self.s.gemini_fallback_models if m != self.s.gemini_model]
+        deadline = time.monotonic() + self.s.model_budget_s
         errors: list[str] = []
-        for model in models:
-            for use_schema in (True, False):
-                body = json.loads(json.dumps(base_body))
-                if use_schema:
-                    body["generationConfig"]["responseSchema"] = response_schema()
-                outcome, value = self._attempt(model, body, errors)
-                if outcome == "ok":
-                    return value
-                if outcome == "bad_request" and use_schema:
-                    continue  # schema rejected by this model: retry once without it
-                break  # try the next model
+        busy: list[str] = []          # models that were overloaded / timed out: worth one more try
+        for pass_no, queue in enumerate((models, None)):
+            if pass_no == 1:
+                queue = busy
+                if not queue or time.monotonic() + 2 >= deadline:
+                    break
+                time.sleep(2.0)
+            for model in list(queue):
+                for use_schema in (True, False):
+                    if time.monotonic() >= deadline:
+                        errors.append(f"gave up after {self.s.model_budget_s:.0f}s")
+                        raise ModelError("; ".join(dict.fromkeys(errors)))
+                    body = json.loads(json.dumps(base_body))
+                    if use_schema:
+                        body["generationConfig"]["responseSchema"] = response_schema()
+                    outcome, value = self._attempt(model, body, errors, deadline)
+                    if outcome == "ok":
+                        return value
+                    if outcome == "bad_request" and use_schema:
+                        continue  # schema rejected by this model: retry once without it
+                    if outcome == "busy" and pass_no == 0:
+                        busy.append(model)
+                    break  # next model
         raise ModelError("; ".join(dict.fromkeys(errors)) or "no model available")
 
-    def _attempt(self, model: str, body: dict[str, Any], errors: list[str]) -> tuple[str, Any]:
-        """One request, retried with back-off on transient 'overloaded' errors."""
-        backoff = [2.0, 6.0]
-        for attempt in range(len(backoff) + 1):
-            t0 = time.monotonic()
+    def _attempt(self, model: str, body: dict[str, Any], errors: list[str], deadline: float) -> tuple[str, Any]:
+        timeout = max(1.0, min(self.s.model_timeout_s, deadline - time.monotonic()))
+        t0 = time.monotonic()
+        try:
+            data = self._call(model, body, timeout)
+        except urllib.error.HTTPError as e:
+            raw = e.read().decode("utf-8", "replace")
             try:
-                data = self._call(model, body)
-            except urllib.error.HTTPError as e:
-                raw = e.read().decode("utf-8", "replace")
-                try:
-                    msg = json.loads(raw)["error"]["message"]
-                except Exception:
-                    msg = raw[:200]
-                errors.append(f"{model}: HTTP {e.code} {' '.join(msg.split())[:200]}")
-                if e.code in (500, 502, 503, 504) and attempt < len(backoff):
-                    time.sleep(backoff[attempt])
-                    continue
-                if e.code == 400:
-                    return "bad_request", None
-                return "next_model", None  # 401/403/404/429/...: try the fallback model
-            except (urllib.error.URLError, TimeoutError, OSError) as e:
-                errors.append(f"{model}: {e}")
-                if attempt < len(backoff):
-                    time.sleep(backoff[attempt])
-                    continue
-                return "next_model", None
-            latency = int((time.monotonic() - t0) * 1000)
-            return "ok", VLMResult(parse_gemini(data), model, latency, data.get("usageMetadata", {}))
-        return "next_model", None
+                msg = json.loads(raw)["error"]["message"]
+            except Exception:
+                msg = raw[:200]
+            errors.append(f"{model}: HTTP {e.code} {' '.join(msg.split())[:160]}")
+            if e.code == 400:
+                return "bad_request", None
+            if e.code in (500, 502, 503, 504):
+                return "busy", None
+            return "next_model", None  # 401/403/404/429: try the fallback model
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            errors.append(f"{model}: {e}")
+            return "busy", None
+        latency = int((time.monotonic() - t0) * 1000)
+        return "ok", VLMResult(parse_gemini(data), model, latency, data.get("usageMetadata", {}))
 
 
 def parse_gemini(data: dict[str, Any]) -> dict[str, Any]:

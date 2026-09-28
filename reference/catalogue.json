@@ -413,16 +413,11 @@
       "distinguishing_features": [
         "no wire between the earbuds",
         "flip-lid charging case",
-        "silicone ear tips"
+        "left and right earbuds look identical in photos - count them, do not try to tell left from right"
       ],
       "parts": [
         {
-          "name": "left earbud",
-          "essential": true,
-          "replaceable": false
-        },
-        {
-          "name": "right earbud",
+          "name": "earbuds (pair of 2)",
           "essential": true,
           "replaceable": false
         },

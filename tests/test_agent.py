@@ -301,6 +301,20 @@ class TestGeminiClient(unittest.TestCase):
         self.assertEqual(res.model_version, "m2")
         self.assertEqual(res.usage["totalTokenCount"], 1234)
 
+    def test_overloaded_model_is_skipped_immediately(self):
+        ok = {"candidates": [{"content": {"parts": [{"text": json.dumps(raw_response())}]}}]}
+        prov, calls, img = self._provider([503, ok])
+        res = prov.inspect(reference.get_order(*ORDER_HEADPHONES), [img])
+        self.assertEqual([c[0] for c in calls], ["m1", "m2"])   # no waiting/retrying on the busy model first
+        self.assertEqual(res.model_version, "m2")
+
+    def test_total_wait_is_bounded(self):
+        prov, calls, img = self._provider([503, 503, 503, 503])
+        prov.s.model_budget_s = 0.5
+        with self.assertRaises(ModelError):
+            prov.inspect(reference.get_order(*ORDER_HEADPHONES), [img])
+        self.assertLessEqual(len(calls), 2)
+
     def test_all_models_fail_raises_model_error(self):
         prov, calls, img = self._provider([429, 429])
         with self.assertRaises(ModelError):

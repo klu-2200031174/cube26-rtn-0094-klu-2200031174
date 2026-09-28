@@ -56,9 +56,10 @@ No key? Set `LLM_PROVIDER=offline` in `.env`: the full workflow runs, but every 
 |---|---|---|
 | `LLM_PROVIDER` | `gemini` | `gemini` or `offline` |
 | `GEMINI_API_KEY` | — | your key (never commit it) |
-| `GEMINI_MODEL` | `gemini-3.5-flash` | vision model id; `check` lists what your key can call |
-| `GEMINI_FALLBACK_MODELS` | `gemini-3.6-flash,gemini-3.5-flash-lite,gemini-3.1-flash-lite` | tried in order if the main model is unavailable or over quota |
-| `MODEL_TIMEOUT_S` | `90` | per-request timeout |
+| `GEMINI_MODEL` | `gemini-3.6-flash` | vision model id; `check` lists what your key can call |
+| `GEMINI_FALLBACK_MODELS` | `gemini-3.5-flash,gemini-3.1-flash-lite,gemini-3.5-flash-lite` | tried in order if the main model is unavailable or over quota |
+| `MODEL_TIMEOUT_S` | `40` | per-request timeout (seconds) |
+| `MODEL_BUDGET_S` | `75` | max total wait per inspection; after that the case is saved as pending review with a Retry button |
 | `ORG_TOKENS` | demo tokens | `org_id:token` pairs; the token decides which org you are |
 | `HOST` / `PORT` | `127.0.0.1` / `8000` | web server |
 | `VAR_DIR` | `var` | SQLite DB + stored photos (git-ignored) |
@@ -110,7 +111,7 @@ python -m unittest discover -s tests -v
 
 ## Test inputs
 
-- `tests/test_agent.py` — 31 unit tests: all ten brief scenarios (with scripted model output), evidence guards, fail-open + retry, overrides, tenant isolation over the real HTTP API, rule-table determinism.
+- `tests/test_agent.py` — 33 unit tests: all ten brief scenarios (with scripted model output), evidence guards, fail-open + retry, overrides, tenant isolation over the real HTTP API, rule-table determinism.
 - `eval/` — held-out photo evaluation set, two-labeller labels and the harness (see `eval/README.md`). Results: `eval/results/report.md`.
 - `docs/sample_evidence_record.json` — an illustrative record (generated from scripted model output, not a real inspection).
 

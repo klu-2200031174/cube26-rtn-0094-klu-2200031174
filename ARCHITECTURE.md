@@ -52,7 +52,7 @@ If step 5 fails (timeout, quota, network, invalid JSON, blocked response), the r
 | Calls per return | **1** (identity + parts + state + damage + grade in one request) | Engineering rule 2: batch related reasoning; latency and cost scale with returns volume |
 | Output | Schema-constrained JSON; falls back to schema-less JSON if a model rejects the schema | Parseable, auditable |
 | Temperature | 0 | Reduce run-to-run variance |
-| Retries | 1 retry on 5xx/network errors; then the next fallback model on 404/429/403; then fail open | Availability without losing the case |
+| Retries | An overloaded (5xx) or timed-out model is skipped at once for the next fallback model, then retried once in a second pass; hard cap of `MODEL_BUDGET_S` (75 s) per inspection, `MODEL_TIMEOUT_S` (40 s) per request; then fail open | Bounded operator wait, no lost cases |
 | Transport | REST via Python standard library | No SDK or dependencies; easy to run on any laptop |
 | Operator note | Passed as "unverified" context | It may be wrong; it never overrides visual evidence |
 | Latency / cost | `latency_ms` on every check; `usageMetadata` token counts in `metrics.usage` | Reported in the evaluation |

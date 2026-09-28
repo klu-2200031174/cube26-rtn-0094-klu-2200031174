@@ -36,9 +36,10 @@ def load_dotenv(path: Path | None = None) -> None:
 class Settings:
     provider: str = "gemini"
     gemini_api_key: str = ""
-    gemini_model: str = "gemini-3.5-flash"
+    gemini_model: str = "gemini-3.6-flash"
     gemini_fallback_models: list[str] = field(default_factory=list)
-    model_timeout_s: float = 90.0
+    model_timeout_s: float = 40.0
+    model_budget_s: float = 75.0
     max_image_side: int = 1600
     var_dir: Path = ROOT / "var"
     host: str = "127.0.0.1"
@@ -54,16 +55,17 @@ class Settings:
                 org, tok = pair.split(":", 1)
                 if org.strip() and tok.strip():
                     tokens[tok.strip()] = org.strip()
-        fallbacks = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "gemini-3.6-flash,gemini-3.5-flash-lite,gemini-3.1-flash-lite").split(",") if m.strip()]
+        fallbacks = [m.strip() for m in os.environ.get("GEMINI_FALLBACK_MODELS", "gemini-3.5-flash,gemini-3.1-flash-lite,gemini-3.5-flash-lite").split(",") if m.strip()]
         var_dir = Path(os.environ.get("VAR_DIR", str(ROOT / "var")))
         if not var_dir.is_absolute():
             var_dir = ROOT / var_dir
         return cls(
             provider=os.environ.get("LLM_PROVIDER", "gemini").strip().lower(),
             gemini_api_key=os.environ.get("GEMINI_API_KEY", "").strip(),
-            gemini_model=os.environ.get("GEMINI_MODEL", "gemini-3.5-flash").strip(),
+            gemini_model=os.environ.get("GEMINI_MODEL", "gemini-3.6-flash").strip(),
             gemini_fallback_models=fallbacks,
-            model_timeout_s=float(os.environ.get("MODEL_TIMEOUT_S", "90")),
+            model_timeout_s=float(os.environ.get("MODEL_TIMEOUT_S", "40")),
+            model_budget_s=float(os.environ.get("MODEL_BUDGET_S", "75")),
             max_image_side=int(os.environ.get("MAX_IMAGE_SIDE", "1600")),
             var_dir=var_dir,
             host=os.environ.get("HOST", "127.0.0.1"),

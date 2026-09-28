@@ -340,7 +340,7 @@ async function showRecord(rec) {
       <div class="stage" style="border-top-color:var(--${disp})"><div class="t">4 · Disposition</div><div class="v" style="color:var(--${disp})">${D.label}</div><div class="s">${esc(o.rule_id || "")}</div></div>
     </div>
     <div class="muted" style="font-size:12.5px">Why: ${esc(o.rule_text || "")}</div>
-    ${rec.errors && rec.errors.length ? `<div class="warn">⚠️ <span style="flex:1">The vision model was unavailable, so nothing was guessed. Photos are saved.<br><span style="font-size:12px">${esc(rec.errors[rec.errors.length-1].error.slice(0, 220))}</span></span><button id="retryBtn">Retry inspection</button></div>` : ""}
+    ${rec.errors && rec.errors.length ? `<div class="warn">⚠️ <span style="flex:1">The vision model was unavailable, so nothing was guessed. Photos are saved.<br><span style="font-size:12px">${esc(rec.errors[rec.errors.length-1].error.slice(0, 220))}</span></span><button id="retryBtn">Retry inspection</button></div>` : rec.status === "pending" ? `<div class="warn">⏳ <span style="flex:1">This inspection never finished (the app was stopped or the model did not answer). Photos are saved.</span><button id="retryBtn">Retry inspection</button></div>` : ""}
 
     <div class="section"><h2>Checks and evidence</h2><div class="grid">
       ${["identity","completeness","condition","image_quality"].filter(k => by[k]).map(k => {
