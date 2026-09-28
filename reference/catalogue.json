@@ -409,7 +409,7 @@
       "asin": "B0DUMMY920",
       "title": "True wireless earbuds with charging case",
       "category": "electronics",
-      "visual_description": "Two separate wireless in-ear earbuds (no cable between them) that sit in a small pill-shaped charging case, supplied with a USB-C charging cable and spare silicone ear tips.",
+      "visual_description": "Two separate wireless in-ear earbuds (no cable between them) that sit in a small pill-shaped flip-lid charging case; may have a silicone protective cover on the case.",
       "distinguishing_features": [
         "no wire between the earbuds",
         "flip-lid charging case",
@@ -430,16 +430,6 @@
           "name": "charging case",
           "essential": true,
           "replaceable": false
-        },
-        {
-          "name": "usb-c cable",
-          "essential": false,
-          "replaceable": true
-        },
-        {
-          "name": "spare ear tips",
-          "essential": false,
-          "replaceable": true
         }
       ],
       "lookalike_skus": [
@@ -447,6 +437,242 @@
       ],
       "hygiene_sensitive": false,
       "_hygiene_note": "Ear tips are replaced during refurbishment, so used units are not auto-disposed; wired earphones (non-removable tips) are."
+    },
+    {
+      "sku": "SKU-CHARGER-A",
+      "asin": "B0HOME0001",
+      "title": "Phone charger A - white OPPO (adapter + USB-C cable)",
+      "category": "electronics_accessories",
+      "visual_description": "White OPPO-branded wall charging adapter with a separate white USB-C charging cable.",
+      "distinguishing_features": [
+        "white colour",
+        "OPPO branding on the adapter",
+        "USB-C connector on the cable"
+      ],
+      "parts": [
+        {
+          "name": "adapter",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "cable",
+          "essential": true,
+          "replaceable": true
+        }
+      ],
+      "lookalike_skus": [
+        "SKU-CHARGER-B"
+      ],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-CHARGER-B",
+      "asin": "B0HOME0002",
+      "title": "Phone charger B - black (adapter + USB-C cable)",
+      "category": "electronics_accessories",
+      "visual_description": "Black wall charging adapter with a separate USB-C charging cable.",
+      "distinguishing_features": [
+        "black colour",
+        "no OPPO branding",
+        "USB-C connector on the cable"
+      ],
+      "parts": [
+        {
+          "name": "adapter",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "cable",
+          "essential": true,
+          "replaceable": true
+        }
+      ],
+      "lookalike_skus": [
+        "SKU-CHARGER-A"
+      ],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-FACEMASK-JAR",
+      "asin": "B0HOME0003",
+      "title": "Face mask in a jar",
+      "category": "beauty",
+      "visual_description": "Cosmetic face mask in a round jar with a screw-on lid.",
+      "distinguishing_features": [
+        "round jar",
+        "screw-on lid"
+      ],
+      "parts": [
+        {
+          "name": "jar",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "lid",
+          "essential": true,
+          "replaceable": true
+        }
+      ],
+      "lookalike_skus": [
+        "SKU-TONER"
+      ],
+      "hygiene_sensitive": true
+    },
+    {
+      "sku": "SKU-TONER",
+      "asin": "B0HOME0004",
+      "title": "Face toner bottle",
+      "category": "beauty",
+      "visual_description": "Liquid face toner in a bottle with a cap.",
+      "distinguishing_features": [
+        "tall bottle",
+        "cap"
+      ],
+      "parts": [
+        {
+          "name": "bottle",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "cap",
+          "essential": true,
+          "replaceable": true
+        }
+      ],
+      "lookalike_skus": [
+        "SKU-FACEMASK-JAR",
+        "SKU-PERFUME"
+      ],
+      "hygiene_sensitive": true
+    },
+    {
+      "sku": "SKU-PERFUME",
+      "asin": "B0HOME0005",
+      "title": "Perfume bottle with cap",
+      "category": "beauty",
+      "visual_description": "Glass perfume bottle with a spray nozzle and a removable cap.",
+      "distinguishing_features": [
+        "glass bottle",
+        "spray nozzle",
+        "removable cap"
+      ],
+      "parts": [
+        {
+          "name": "perfume bottle",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "cap",
+          "essential": true,
+          "replaceable": true
+        }
+      ],
+      "lookalike_skus": [
+        "SKU-TONER"
+      ],
+      "hygiene_sensitive": true
+    },
+    {
+      "sku": "SKU-VASE",
+      "asin": "B0HOME0006",
+      "title": "Flower vase",
+      "category": "home_decor",
+      "visual_description": "Decorative flower vase, single piece.",
+      "distinguishing_features": [
+        "single piece vase"
+      ],
+      "parts": [
+        {
+          "name": "vase",
+          "essential": true,
+          "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-CLAWCLIP",
+      "asin": "B0HOME0007",
+      "title": "Hair claw clip",
+      "category": "fashion_accessories",
+      "visual_description": "Hair claw clip with interlocking teeth and a spring hinge.",
+      "distinguishing_features": [
+        "claw teeth",
+        "spring hinge"
+      ],
+      "parts": [
+        {
+          "name": "clip",
+          "essential": true,
+          "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-POUCH-BLK",
+      "asin": "B0HOME0008",
+      "title": "Black pouch",
+      "category": "fashion_accessories",
+      "visual_description": "Black zip pouch / small bag.",
+      "distinguishing_features": [
+        "black colour",
+        "zip closure"
+      ],
+      "parts": [
+        {
+          "name": "pouch",
+          "essential": true,
+          "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-COMB",
+      "asin": "B0HOME0009",
+      "title": "Comb",
+      "category": "personal_care",
+      "visual_description": "Hair comb.",
+      "distinguishing_features": [
+        "row of teeth"
+      ],
+      "parts": [
+        {
+          "name": "comb",
+          "essential": true,
+          "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": true
+    },
+    {
+      "sku": "SKU-SOFTTOY",
+      "asin": "B0HOME0010",
+      "title": "Soft toy",
+      "category": "toys",
+      "visual_description": "Plush soft toy.",
+      "distinguishing_features": [
+        "plush fabric"
+      ],
+      "parts": [
+        {
+          "name": "soft toy",
+          "essential": true,
+          "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": false
     }
   ]
 }
