@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Returns Manager</title>
+<style>
+:root{--bg:#f5f6f8;--panel:#fff;--ink:#16181d;--muted:#606775;--line:#e2e5ea;--accent:#2b59c3;
+--pass:#1f7a4d;--pass-bg:#e5f4ec;--fail:#b3261e;--fail-bg:#fbe9e7;--unc:#8a5a00;--unc-bg:#fdf3dc;
+--restock:#1f7a4d;--refurbish:#2b59c3;--liquidate:#8a5a00;--dispose:#b3261e;--pending_review:#6b4bb8}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{display:flex;align-items:center;gap:16px;padding:12px 20px;background:var(--panel);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header h1{font-size:17px;margin:0}
+header .sub{color:var(--muted);font-size:12px}
+header .spacer{flex:1}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line);background:#fafbfc}
+button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;cursor:pointer}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+button:disabled{opacity:.55;cursor:default}
+input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:8px;padding:7px 9px;width:100%;background:#fff}
+label{display:block;font-size:12px;color:var(--muted);margin:10px 0 4px}
+main{display:grid;grid-template-columns:360px 1fr;gap:16px;padding:16px;max-width:1400px;margin:0 auto}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.panel h2{font-size:14px;margin:0 0 8px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.drop{border:2px dashed var(--line);border-radius:10px;padding:14px;text-align:center;color:var(--muted);cursor:pointer}
+.drop.over{border-color:var(--accent);background:#eef3ff}
+.thumbs{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.thumbs figure{margin:0;position:relative}
+.thumbs img{width:72px;height:72px;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.thumbs figcaption{position:absolute;left:3px;top:3px;background:#000a;color:#fff;font-size:10px;padding:0 4px;border-radius:4px}
+.thumbs .x{position:absolute;right:2px;top:2px;border:0;background:#000a;color:#fff;border-radius:4px;padding:0 5px;font-size:11px}
+.parts{font-size:12px;color:var(--muted);margin-top:6px}
+.banner{border-radius:12px;padding:14px 16px;color:#fff;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.banner .disp{font-size:22px;font-weight:700;letter-spacing:.5px}
+.banner .meta{font-size:12px;opacity:.92}
+.summary{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#f1f3f6;padding:8px 10px;border-radius:8px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px;margin-top:12px}
+.check{border:1px solid var(--line);border-radius:10px;padding:12px}
+.check h3{margin:0 0 6px;font-size:13px;display:flex;justify-content:space-between;align-items:center;text-transform:capitalize}
+.chip{font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px}
+.PASS{color:var(--pass);background:var(--pass-bg)}.FAIL{color:var(--fail);background:var(--fail-bg)}.UNCERTAIN{color:var(--unc);background:var(--unc-bg)}
+.conf{height:5px;background:#eef0f3;border-radius:3px;overflow:hidden;margin:6px 0}
+.conf>div{height:100%;background:var(--accent)}
+.detail{font-size:12px;color:#333}
+.ev{font-size:12px;margin:6px 0 0;padding-left:16px}
+.ev a{color:var(--accent);cursor:pointer;text-decoration:underline}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{text-align:left;padding:6px;border-bottom:1px solid var(--line);vertical-align:top}
+tr.click{cursor:pointer}tr.click:hover{background:#f7f8fa}
+.photos{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.photos figure{margin:0;text-align:center;font-size:11px;color:var(--muted)}
+.photos img{height:120px;border-radius:8px;border:2px solid var(--line);cursor:zoom-in}
+.photos img.hl{border-color:var(--accent)}
+.muted{color:var(--muted)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+details{margin-top:12px}
+pre{background:#0f1115;color:#d7dae0;padding:12px;border-radius:8px;overflow:auto;max-height:420px;font-size:11px}
+.err{background:var(--fail-bg);color:var(--fail);padding:8px 10px;border-radius:8px;margin-top:8px}
+.ok{background:var(--pass-bg);color:var(--pass);padding:8px 10px;border-radius:8px;margin-top:8px}
+dialog{border:0;border-radius:12px;padding:0;max-width:92vw}
+dialog img{max-width:90vw;max-height:85vh;display:block}
+.login{max-width:420px;margin:60px auto}
+.spin{display:inline-block;width:14px;height:14px;border:2px solid #fff6;border-top-color:#fff;border-radius:50%;animation:s 1s linear infinite;vertical-align:-2px}
+@keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>Returns Manager</h1><div class="sub">Identity · Completeness · Condition · Disposition — with evidence</div></div>
+  <div class="spacer"></div>
+  <span id="orgBadge" class="badge" hidden></span>
+  <span id="modelBadge" class="badge" hidden></span>
+  <button id="logoutBtn" hidden>Switch org</button>
+</header>
+
+<section id="loginView" class="panel login" hidden>
+  <h2>Sign in to an organisation</h2>
+  <p class="muted">Each organisation sees only its own orders, records and photos. Tokens are set in <code>.env</code> (<code>ORG_TOKENS</code>).</p>
+  <label for="tokenInput">Org token</label>
+  <input id="tokenInput" type="password" autocomplete="off" placeholder="e.g. alpha-demo-token">
+  <div class="row" style="margin-top:10px">
+    <button class="primary" id="loginBtn">Sign in</button>
+    <button data-demo="alpha-demo-token">Demo: Alpha</button>
+    <button data-demo="bravo-demo-token">Demo: Bravo</button>
+  </div>
+  <div id="loginErr"></div>
+</section>
+
+<main id="appView" hidden>
+  <aside class="panel">
+    <div class="tabs"><button id="tabNew" class="on">New inspection</button><button id="tabList">Records</button></div>
+    <div id="newPane">
+      <label for="orderSel">Original order</label>
+      <select id="orderSel"></select>
+      <div id="orderInfo" class="parts"></div>
+      <label for="opInput">Operator</label>
+      <input id="opInput" placeholder="your name / id">
+      <label>Photos of the returned package (1–8)</label>
+      <div id="drop" class="drop">Drop photos here or click to choose<br><span style="font-size:11px">Tip: one overview of all contents, plus close-ups of labels and damage</span></div>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      <div id="thumbs" class="thumbs"></div>
+      <label for="noteInput">Operator note (optional, treated as unverified)</label>
+      <textarea id="noteInput" rows="2"></textarea>
+      <div class="row" style="margin-top:12px"><button class="primary" id="runBtn">Run inspection</button><span id="runStatus" class="muted"></span></div>
+      <div id="runErr"></div>
+    </div>
+    <div id="listPane" hidden>
+      <div class="row" style="justify-content:space-between"><h2>Records</h2><button id="refreshBtn">Refresh</button></div>
+      <table><thead><tr><th>Record</th><th>Status</th><th>Disposition</th></tr></thead><tbody id="recRows"></tbody></table>
+    </div>
+  </aside>
+
+  <section class="panel" id="resultPane">
+    <div id="empty" class="muted">Run an inspection or open a record to see the agent's decision and evidence.</div>
+    <div id="result" hidden></div>
+  </section>
+</main>
+
+<dialog id="zoom"><img id="zoomImg" alt="photo"></dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let TOKEN = null, SESSION = null, ORDERS = [], FILES = [], CURRENT = null, imgCache = {};
+try { TOKEN = sessionStorage.getItem("rm_token"); } catch (e) {}
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, {...opts, headers: {"Content-Type": "application/json", "Authorization": "Bearer " + TOKEN, ...(opts.headers || {})}});
+  const text = await r.text();
+  let data; try { data = JSON.parse(text); } catch { data = {error: text}; }
+  if (!r.ok) throw new Error(data.error || ("HTTP " + r.status));
+  return data;
+}
+
+async function login(tok) {
+  TOKEN = tok;
+  try {
+    SESSION = await api("/api/session");
+    try { sessionStorage.setItem("rm_token", tok); } catch (e) {}
+    $("#loginView").hidden = true; $("#appView").hidden = false;
+    $("#orgBadge").hidden = $("#modelBadge").hidden = $("#logoutBtn").hidden = false;
+    $("#orgBadge").textContent = "Org: " + SESSION.organization_id;
+    $("#modelBadge").textContent = "Model: " + SESSION.model;
+    ORDERS = (await api("/api/orders")).orders;
+    $("#orderSel").innerHTML = ORDERS.map(o => `<option value="${esc(o.order_id)}">${esc(o.order_id)} · ${esc(o.ordered_sku)} · ${esc(o.unit_id)}</option>`).join("");
+    showOrder(); loadRecords();
+  } catch (e) {
+    TOKEN = null; showLogin(); $("#loginErr").innerHTML = `<div class="err">${esc(e.message)}</div>`;
+  }
+}
+function showLogin() {
+  $("#loginView").hidden = false; $("#appView").hidden = true;
+  $("#orgBadge").hidden = $("#modelBadge").hidden = $("#logoutBtn").hidden = true;
+}
+function showOrder() {
+  const o = ORDERS.find(x => x.order_id === $("#orderSel").value);
+  $("#orderInfo").innerHTML = o ? `<b>${esc(o.title || o.ordered_sku)}</b> — ASIN ${esc(o.ordered_asin)}<br>Expected parts: ${o.expected_parts.map(esc).join(", ") || "n/a"}` : "";
+}
+
+/* ---------- photo intake (downscaled in the browser to cut upload + model cost) ---------- */
+function addFiles(list) {
+  for (const f of list) { if (f.type.startsWith("image/") && FILES.length < 8) FILES.push(f); }
+  renderThumbs();
+}
+function renderThumbs() {
+  $("#thumbs").innerHTML = "";
+  FILES.forEach((f, i) => {
+    const fig = document.createElement("figure");
+    fig.innerHTML = `<img alt="photo ${i}"><figcaption>#${i}</figcaption><button class="x" title="remove">×</button>`;
+    fig.querySelector("img").src = URL.createObjectURL(f);
+    fig.querySelector(".x").onclick = () => { FILES.splice(i, 1); renderThumbs(); };
+    $("#thumbs").appendChild(fig);
+  });
+}
+function toJpegBase64(file, maxSide = 1600) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const s = Math.min(1, maxSide / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      resolve(c.toDataURL("image/jpeg", 0.9).split(",")[1]);
+    };
+    img.onerror = () => reject(new Error("Could not read " + file.name + " (use JPEG/PNG)"));
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+async function run() {
+  $("#runErr").innerHTML = "";
+  if (!FILES.length) { $("#runErr").innerHTML = `<div class="err">Add at least one photo.</div>`; return; }
+  if (!$("#opInput").value.trim()) { $("#runErr").innerHTML = `<div class="err">Enter the operator name.</div>`; return; }
+  $("#runBtn").disabled = true; $("#runStatus").innerHTML = `<span class="spin" style="border-color:#2b59c355;border-top-color:#2b59c3"></span> inspecting…`;
+  try {
+    const images = [];
+    for (const f of FILES) images.push({data_base64: await toJpegBase64(f), mime: "image/jpeg"});
+    const rec = await api("/api/inspections", {method: "POST", body: JSON.stringify({
+      order_id: $("#orderSel").value, operator_label: $("#opInput").value.trim(), operator_note: $("#noteInput").value, images})});
+    FILES = []; renderThumbs(); $("#noteInput").value = "";
+    showRecord(rec); loadRecords();
+  } catch (e) { $("#runErr").innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+  finally { $("#runBtn").disabled = false; $("#runStatus").textContent = ""; }
+}
+
+/* ---------- records ---------- */
+async function loadRecords() {
+  try {
+    const {records} = await api("/api/records");
+    $("#recRows").innerHTML = records.map(r => `<tr class="click" data-id="${esc(r.record_id)}"><td>${esc(r.record_id)}<br><span class="muted">${esc(r.unit_id)}</span></td><td>${esc(r.status)}</td><td>${esc(r.disposition)}</td></tr>`).join("") || `<tr><td colspan=3 class="muted">No records yet</td></tr>`;
+    document.querySelectorAll("#recRows tr.click").forEach(tr => tr.onclick = async () => showRecord(await api("/api/records/" + tr.dataset.id)));
+  } catch (e) { $("#recRows").innerHTML = `<tr><td colspan=3>${esc(e.message)}</td></tr>`; }
+}
+async function imageUrl(uri) {
+  if (imgCache[uri]) return imgCache[uri];
+  const r = await fetch(uri, {headers: {"Authorization": "Bearer " + TOKEN}});
+  if (!r.ok) return "";
+  return (imgCache[uri] = URL.createObjectURL(await r.blob()));
+}
+
+const DISP_LABEL = {restock: "RESTOCK", refurbish: "REFURBISH", liquidate: "LIQUIDATE", dispose: "DISPOSE", pending_review: "PENDING REVIEW"};
+
+function evList(evs) {
+  if (!evs || !evs.length) return `<div class="ev muted">No image evidence</div>`;
+  return `<ul class="ev">${evs.map(e => `<li><a data-img="${e.image_index}">photo #${e.image_index}</a>${e.part ? " · " + esc(e.part) : ""}: ${esc(e.observation)}</li>`).join("")}</ul>`;
+}
+
+async function showRecord(rec) {
+  CURRENT = rec;
+  $("#empty").hidden = true; const el = $("#result"); el.hidden = false;
+  const o = rec.outcome || {}, eff = rec.effective || {};
+  const disp = eff.disposition || o.disposition || "pending_review";
+  const by = Object.fromEntries((rec.checks || []).map(c => [c.check_key, c]));
+  const overridden = eff.source === "override";
+  const comp = by.completeness?.value?.components || [];
+  const dmg = by.condition?.value?.damage || [];
+  el.innerHTML = `
+    <div class="banner" style="background:var(--${disp})">
+      <div><div class="disp">${DISP_LABEL[disp] || esc(disp)}</div>
+      <div class="meta">${overridden ? `Human override of agent decision <b>${esc(DISP_LABEL[o.disposition])}</b>` : `Agent decision · rule ${esc(o.rule_id)}`}</div></div>
+      <div class="meta" style="flex:1;min-width:220px">${esc(o.rule_text || "")}</div>
+      <div class="meta">${esc(rec.record_id)}<br>${esc(rec.subject.unit_id)} · ${esc(rec.subject.order_id)}<br>status: ${esc(rec.status)}</div>
+    </div>
+    <div class="summary">${esc(o.summary || "")}</div>
+    ${rec.errors && rec.errors.length ? `<div class="err">Model problem — case kept and sent to review: ${esc(rec.errors[rec.errors.length-1].error)} <button id="retryBtn">Retry inspection</button></div>` : ""}
+    <div class="grid">
+      ${["identity","completeness","condition","image_quality"].filter(k => by[k]).map(k => {
+        const c = by[k];
+        const val = k === "condition" ? `<div><b>${esc(c.value?.grade || "UNCERTAIN")}</b> <span class="muted">(${esc(c.value?.observed_state || "")})</span></div>` : "";
+        return `<div class="check"><h3>${esc(k.replace("_"," "))}<span class="chip ${c.verdict}">${c.verdict}</span></h3>${val}
+          <div class="conf" title="confidence ${c.confidence}"><div style="width:${Math.round((c.confidence||0)*100)}%"></div></div>
+          <div class="detail">${esc(c.detail)}</div>${k !== "image_quality" ? evList(c.evidence) : ""}</div>`;
+      }).join("")}
+    </div>
+    ${comp.length ? `<h2 style="margin-top:16px">Components</h2><table><thead><tr><th>Part</th><th>Status</th><th>Conf.</th><th>Essential / replaceable</th><th>Evidence</th></tr></thead><tbody>
+      ${comp.map(p => `<tr><td>${esc(p.part)}</td><td><span class="chip ${p.status === "PRESENT" ? "PASS" : p.status === "ABSENT" ? "FAIL" : "UNCERTAIN"}">${esc(p.status)}</span></td><td>${p.confidence}</td><td>${p.essential ? "essential" : "optional"} / ${p.replaceable ? "replaceable" : "not replaceable"}</td><td>${p.evidence.map(e => `#${e.image_index}: ${esc(e.observation)}`).join("<br>") || `<span class="muted">${esc(p.note || "—")}</span>`}</td></tr>`).join("")}
+      </tbody></table>` : ""}
+    ${dmg.length ? `<h2 style="margin-top:16px">Damage findings</h2><ul class="ev">${dmg.map(d => `<li><b>${esc(d.severity)}</b> — ${esc(d.description)} (<a data-img="${d.image_index}">photo #${d.image_index}</a>)</li>`).join("")}</ul>` : ""}
+    <h2 style="margin-top:16px">Photos</h2><div class="photos" id="photoStrip"></div>
+    <h2 style="margin-top:16px">Human review / override</h2>
+    <p class="muted" style="margin-top:0">The agent's original decision is never changed. Overrides are stored separately with who, when and why.</p>
+    <div class="row">
+      <select id="ovField" style="width:auto">
+        <option value="disposition">Disposition</option><option value="condition_grade">Condition grade</option>
+        <option value="check:identity">Identity verdict</option><option value="check:completeness">Completeness verdict</option>
+        <option value="check:condition">Condition verdict</option></select>
+      <select id="ovValue" style="width:auto"></select>
+    </div>
+    <label for="ovReason">Reason (required)</label><input id="ovReason" placeholder="What did you see that the agent missed?">
+    <label for="ovOp">Reviewer</label><input id="ovOp" value="${esc($("#opInput").value)}">
+    <div class="row" style="margin-top:8px"><button class="primary" id="ovBtn">Save override</button></div><div id="ovMsg"></div>
+    ${rec.overrides.length ? `<table style="margin-top:10px"><thead><tr><th>When</th><th>Field</th><th>Agent / previous</th><th>Revised</th><th>Reviewer</th><th>Reason</th></tr></thead><tbody>
+      ${rec.overrides.map(v => `<tr><td>${esc(v.created_at)}</td><td>${esc(v.field)}</td><td>${esc(v.original_value)}</td><td><b>${esc(v.revised_value)}</b></td><td>${esc(v.operator_label)}</td><td>${esc(v.reason)}</td></tr>`).join("")}</tbody></table>` : ""}
+    <details id="auditDet"><summary>Audit trail</summary><div id="auditBox" class="muted">loading…</div></details>
+    <details><summary>Evidence record (JSON)</summary><div class="row" style="margin:8px 0"><button id="dlBtn">Download JSON</button><button id="verifyBtn">Check content hash</button><span id="verifyMsg" class="muted"></span></div><pre>${esc(JSON.stringify(rec, null, 2))}</pre></details>`;
+
+  const strip = $("#photoStrip");
+  for (const im of rec.images) {
+    const fig = document.createElement("figure");
+    fig.innerHTML = `<img data-idx="${im.index}" alt="photo ${im.index}"><figcaption>#${im.index} · ${im.sha256.slice(0, 10)}…</figcaption>`;
+    strip.appendChild(fig);
+    imageUrl(im.uri).then(u => { fig.querySelector("img").src = u; });
+    fig.querySelector("img").onclick = e => zoom(e.target.src);
+  }
+  el.querySelectorAll("a[data-img]").forEach(a => a.onclick = () => {
+    const t = strip.querySelector(`img[data-idx="${a.dataset.img}"]`);
+    if (t) { strip.querySelectorAll("img").forEach(i => i.classList.remove("hl")); t.classList.add("hl"); zoom(t.src); }
+  });
+  const fillValues = () => {
+    const f = $("#ovField").value;
+    const vals = f === "disposition" ? ["restock","refurbish","liquidate","dispose","pending_review"]
+      : f === "condition_grade" ? [...SESSION.condition_scale.grades.map(g => g.grade), SESSION.condition_scale.unacceptable.grade]
+      : ["PASS","FAIL","UNCERTAIN"];
+    $("#ovValue").innerHTML = vals.map(v => `<option>${esc(v)}</option>`).join("");
+  };
+  $("#ovField").onchange = fillValues; fillValues();
+  $("#ovBtn").onclick = async () => {
+    try {
+      const r = await api(`/api/records/${rec.record_id}/override`, {method: "POST", body: JSON.stringify({
+        field: $("#ovField").value, revised: $("#ovValue").value, reason: $("#ovReason").value, operator_label: $("#ovOp").value})});
+      showRecord(r); loadRecords();
+    } catch (e) { $("#ovMsg").innerHTML = `<div class="err">${esc(e.message)}</div>`; }
+  };
+  if ($("#retryBtn")) $("#retryBtn").onclick = async () => {
+    $("#retryBtn").disabled = true;
+    try { showRecord(await api(`/api/records/${rec.record_id}/retry`, {method: "POST", body: "{}"})); loadRecords(); }
+    catch (e) { alert(e.message); }
+  };
+  $("#auditDet").ontoggle = async () => {
+    if (!$("#auditDet").open) return;
+    const {audit} = await api(`/api/records/${rec.record_id}/audit`);
+    $("#auditBox").innerHTML = `<table>${audit.map(a => `<tr><td>${a.seq}</td><td>${esc(a.created_at)}</td><td><b>${esc(a.event)}</b></td><td><code>${esc(JSON.stringify(a.payload))}</code></td></tr>`).join("")}</table>`;
+  };
+  $("#dlBtn").onclick = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify(rec, null, 2)], {type: "application/json"}));
+    a.download = rec.record_id + ".json"; a.click();
+  };
+  $("#verifyBtn").onclick = async () => {
+    const v = await api(`/api/records/${rec.record_id}/verify`);
+    $("#verifyMsg").textContent = v.matches ? "Agent-authored part unchanged since decision." : "Hash differs: the agent-authored part was modified.";
+  };
+}
+function zoom(src) { if (!src) return; $("#zoomImg").src = src; $("#zoom").showModal(); }
+$("#zoom").onclick = () => $("#zoom").close();
+
+/* ---------- wiring ---------- */
+$("#loginBtn").onclick = () => login($("#tokenInput").value.trim());
+$("#tokenInput").onkeydown = e => { if (e.key === "Enter") login($("#tokenInput").value.trim()); };
+document.querySelectorAll("[data-demo]").forEach(b => b.onclick = () => login(b.dataset.demo));
+$("#logoutBtn").onclick = () => { try { sessionStorage.removeItem("rm_token"); } catch (e) {} TOKEN = null; imgCache = {}; $("#result").hidden = true; $("#empty").hidden = false; showLogin(); };
+$("#orderSel").onchange = showOrder;
+$("#drop").onclick = () => $("#fileInput").click();
+$("#fileInput").onchange = e => { addFiles(e.target.files); e.target.value = ""; };
+$("#drop").ondragover = e => { e.preventDefault(); $("#drop").classList.add("over"); };
+$("#drop").ondragleave = () => $("#drop").classList.remove("over");
+$("#drop").ondrop = e => { e.preventDefault(); $("#drop").classList.remove("over"); addFiles(e.dataTransfer.files); };
+$("#runBtn").onclick = run;
+$("#refreshBtn").onclick = loadRecords;
+$("#tabNew").onclick = () => { $("#tabNew").classList.add("on"); $("#tabList").classList.remove("on"); $("#newPane").hidden = false; $("#listPane").hidden = true; };
+$("#tabList").onclick = () => { $("#tabList").classList.add("on"); $("#tabNew").classList.remove("on"); $("#newPane").hidden = true; $("#listPane").hidden = false; loadRecords(); };
+if (TOKEN) login(TOKEN); else showLogin();
+</script>
+</body>
+</html>

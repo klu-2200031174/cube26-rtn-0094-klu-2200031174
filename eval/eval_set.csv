@@ -1,0 +1,2 @@
+case_id,org_id,order_id,image_paths,scenario
+EX-01,org_demo_alpha,ORD-DEMO-90001,photos/EX-01_1.jpg;photos/EX-01_2.jpg,missing_accessory

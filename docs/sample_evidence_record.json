@@ -1,0 +1,369 @@
+{
+  "record_id": "RTN-9001-54DEF6",
+  "schema_version": "rtn-evidence-1.0",
+  "organization_id": "org_demo_alpha",
+  "client_id": "seller_alpha_01",
+  "agent": {
+    "name": "returns-manager",
+    "version": "0.1.0",
+    "provider": "scripted",
+    "model_version": "example-illustrative",
+    "rules_version": "rules-2026-09-28",
+    "condition_scale": "amazon-condition-guidelines"
+  },
+  "subject": {
+    "stage": "customer_return",
+    "unit_id": "UNIT-9001",
+    "order_id": "ORD-DEMO-90001",
+    "sku": "SKU-HEADPHONES-BT",
+    "asin": "B0DUMMY900",
+    "title": "Wireless headphones",
+    "expected_parts": [
+      "headphones",
+      "carrying case",
+      "usb cable",
+      "manual"
+    ]
+  },
+  "captured_at": "2026-09-28T14:28:31.866145Z",
+  "operator_label": "op_demo",
+  "operator_note": "",
+  "images": [
+    {
+      "image_id": "7f058f9b89649221a9d139a5ed26860d",
+      "index": 0,
+      "sha256": "18acfc973d1ad5b1e0d7b74986d6d111fda24f63216ae15f96817590685f4ffd",
+      "mime": "image/jpeg",
+      "bytes": 68,
+      "uri": "/api/images/7f058f9b89649221a9d139a5ed26860d"
+    }
+  ],
+  "checks": [
+    {
+      "check_key": "image_quality",
+      "verdict": "PASS",
+      "confidence": 1.0,
+      "detail": "1/1 photos usable",
+      "evidence": [],
+      "model_version": "example-illustrative",
+      "latency_ms": 1,
+      "value": {
+        "usable_images": [
+          0
+        ],
+        "issues": []
+      }
+    },
+    {
+      "check_key": "identity",
+      "verdict": "PASS",
+      "confidence": 0.95,
+      "detail": "Expected SKU-HEADPHONES-BT (Wireless headphones); observed: over-ear headphones; best catalogue match: SKU-HEADPHONES-BT",
+      "evidence": [
+        {
+          "image_index": 0,
+          "observation": "over-ear cups visible"
+        }
+      ],
+      "model_version": "example-illustrative",
+      "latency_ms": 1,
+      "value": {
+        "expected_sku": "SKU-HEADPHONES-BT",
+        "expected_asin": "B0DUMMY900",
+        "model_verdict": "MATCH",
+        "best_matching_sku": "SKU-HEADPHONES-BT",
+        "visible_identifiers": []
+      }
+    },
+    {
+      "check_key": "completeness",
+      "verdict": "FAIL",
+      "confidence": 0.9,
+      "detail": "3/4 expected parts confirmed present; missing: usb cable",
+      "evidence": [
+        {
+          "image_index": 0,
+          "observation": "headphones",
+          "part": "headphones"
+        },
+        {
+          "image_index": 0,
+          "observation": "carrying case",
+          "part": "carrying case"
+        },
+        {
+          "image_index": 0,
+          "observation": "cable slot in the case insert is empty; all contents laid out, no cable",
+          "part": "usb cable"
+        },
+        {
+          "image_index": 0,
+          "observation": "manual",
+          "part": "manual"
+        }
+      ],
+      "model_version": "example-illustrative",
+      "latency_ms": 1,
+      "value": {
+        "components": [
+          {
+            "part": "headphones",
+            "status": "PRESENT",
+            "confidence": 0.9,
+            "essential": true,
+            "replaceable": false,
+            "evidence": [
+              {
+                "image_index": 0,
+                "observation": "headphones"
+              }
+            ]
+          },
+          {
+            "part": "carrying case",
+            "status": "PRESENT",
+            "confidence": 0.9,
+            "essential": false,
+            "replaceable": true,
+            "evidence": [
+              {
+                "image_index": 0,
+                "observation": "carrying case"
+              }
+            ]
+          },
+          {
+            "part": "usb cable",
+            "status": "ABSENT",
+            "confidence": 0.9,
+            "essential": true,
+            "replaceable": true,
+            "evidence": [
+              {
+                "image_index": 0,
+                "observation": "cable slot in the case insert is empty; all contents laid out, no cable"
+              }
+            ]
+          },
+          {
+            "part": "manual",
+            "status": "PRESENT",
+            "confidence": 0.9,
+            "essential": false,
+            "replaceable": true,
+            "evidence": [
+              {
+                "image_index": 0,
+                "observation": "manual"
+              }
+            ]
+          }
+        ],
+        "missing": [
+          "usb cable"
+        ],
+        "unverified": [],
+        "unexpected_items": []
+      }
+    },
+    {
+      "check_key": "condition",
+      "verdict": "PASS",
+      "confidence": 0.9,
+      "detail": "Grade: Used - Good (model proposed 'Used - Good'); observed state: signs_of_use; light wear",
+      "evidence": [
+        {
+          "image_index": 0,
+          "observation": "wear"
+        }
+      ],
+      "model_version": "example-illustrative",
+      "latency_ms": 1,
+      "value": {
+        "grade": "Used - Good",
+        "model_grade": "Used - Good",
+        "scale": "amazon-condition-guidelines",
+        "observed_state": "signs_of_use",
+        "damage": [
+          {
+            "description": "light scuff on left ear cup",
+            "severity": "minor",
+            "image_index": 0
+          }
+        ]
+      }
+    }
+  ],
+  "outcome": {
+    "disposition": "refurbish",
+    "rule_id": "R12_MISSING_ONE_REPLACEABLE",
+    "rule_text": "Exactly one replaceable component is missing and the item grades Used - Good or better: replace the part and relist.",
+    "rules_version": "rules-2026-09-28",
+    "needs_human_review": false,
+    "rules_evaluated": [
+      {
+        "rule_id": "R01_MODEL_UNAVAILABLE",
+        "matched": false
+      },
+      {
+        "rule_id": "R02_NO_USABLE_IMAGES",
+        "matched": false
+      },
+      {
+        "rule_id": "R03_IDENTITY_FAIL",
+        "matched": false
+      },
+      {
+        "rule_id": "R04_IDENTITY_UNCERTAIN",
+        "matched": false
+      },
+      {
+        "rule_id": "R05_CONDITION_UNCERTAIN",
+        "matched": false
+      },
+      {
+        "rule_id": "R06_UNACCEPTABLE_SEVERE",
+        "matched": false
+      },
+      {
+        "rule_id": "R07_UNACCEPTABLE",
+        "matched": false
+      },
+      {
+        "rule_id": "R08_HYGIENE_USED",
+        "matched": false
+      },
+      {
+        "rule_id": "R09_COMPLETENESS_UNCERTAIN",
+        "matched": false
+      },
+      {
+        "rule_id": "R10_MISSING_CORE_PART",
+        "matched": false
+      },
+      {
+        "rule_id": "R11_MISSING_MULTIPLE",
+        "matched": false
+      },
+      {
+        "rule_id": "R12_MISSING_ONE_REPLACEABLE",
+        "matched": true
+      }
+    ],
+    "summary": "Identity: PASS | Completeness: FAIL (missing: usb cable) | Condition: Used - Good | Disposition: REFURBISH"
+  },
+  "overrides": [
+    {
+      "override_id": "OVR-4aecb0a8f643",
+      "field": "disposition",
+      "original_value": "refurbish",
+      "revised_value": "liquidate",
+      "reason": "replacement cable is proprietary and out of stock",
+      "operator_label": "supervisor_1",
+      "created_at": "2026-09-28T14:28:31.872332Z"
+    }
+  ],
+  "status": "overridden",
+  "errors": [],
+  "attempts": 1,
+  "model_observations": {
+    "image_quality": [
+      {
+        "image_index": 0,
+        "usable": true,
+        "issue": ""
+      }
+    ],
+    "identity": {
+      "verdict": "MATCH",
+      "observed_product": "over-ear headphones",
+      "best_matching_sku": "SKU-HEADPHONES-BT",
+      "visible_identifiers": [],
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "image_index": 0,
+          "observation": "over-ear cups visible"
+        }
+      ]
+    },
+    "components": [
+      {
+        "part": "headphones",
+        "status": "PRESENT",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "image_index": 0,
+            "observation": "headphones"
+          }
+        ]
+      },
+      {
+        "part": "carrying case",
+        "status": "PRESENT",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "image_index": 0,
+            "observation": "carrying case"
+          }
+        ]
+      },
+      {
+        "part": "usb cable",
+        "status": "ABSENT",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "image_index": 0,
+            "observation": "cable slot in the case insert is empty; all contents laid out, no cable"
+          }
+        ]
+      },
+      {
+        "part": "manual",
+        "status": "PRESENT",
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "image_index": 0,
+            "observation": "manual"
+          }
+        ]
+      }
+    ],
+    "unexpected_items": [],
+    "observed_state": "signs_of_use",
+    "damage": [
+      {
+        "description": "light scuff on left ear cup",
+        "severity": "minor",
+        "image_index": 0
+      }
+    ],
+    "condition": {
+      "grade": "Used - Good",
+      "confidence": 0.9,
+      "rationale": "light wear",
+      "evidence": [
+        {
+          "image_index": 0,
+          "observation": "wear"
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "model_latency_ms": 1,
+    "usage": {},
+    "total_latency_ms": 5
+  },
+  "decided_at": "2026-09-28T14:28:31.869510Z",
+  "effective": {
+    "disposition": "liquidate",
+    "source": "override",
+    "override_id": "OVR-4aecb0a8f643"
+  },
+  "content_hash": "sha256:467168caac52344759bfb12e1de648209ee3d79722db85541e58a6817dc74367"
+}
