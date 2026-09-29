@@ -11,3 +11,6 @@
 | 2026-09-28 | Redesigned operator UI (decision pipeline, evidence links, record stats); household items added to catalogue | Usability |
 | 2026-09-28 | Latency fix: with the primary model overloaded, retries could keep an operator waiting for minutes. Busy models are now skipped immediately, total wait capped at 75 s, unfinished inspections show a Retry button | Live use: inspections felt stuck |
 | 2026-09-28 | Catalogue fix: earbuds listed as separate "left" and "right" parts, which photos cannot tell apart -> one part "earbuds (pair of 2)" | Live earbuds test |
+| 2026-09-29 | Evaluation set: 50 held-out cases, one phone photo each, 10 scenarios (eval/eval_set.csv, eval/photo_map.csv) | Evaluation rule: 50 unseen units |
+| 2026-09-29 | Catalogue: chargers split into white Samsung (white cable) and OPPO (white adapter, black cable); a flip-lid water bottle replaces the perfume bottle, which was not available | Match the real items photographed |
+| 2026-09-29 | Two label sets (A and B) recorded; expected dispositions derived from the labels with the same rule table as the agent (eval/derive_dispositions.py) | Disposition accuracy measures rule-consistent outcomes |

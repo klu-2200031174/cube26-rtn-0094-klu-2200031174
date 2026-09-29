@@ -1,51 +1,51 @@
-case_id,identity,missing_parts,condition_grade,disposition
-E01,,,,
-E02,,,,
-E03,,,,
-E04,,,,
-E05,,,,
-E06,,,,
-E07,,,,
-E08,,,,
-E09,,,,
-E10,,,,
-E11,,,,
-E12,,,,
-E13,,,,
-E14,,,,
-E15,,,,
-E16,,,,
-E17,,,,
-E18,,,,
-E19,,,,
-E20,,,,
-E21,,,,
-E22,,,,
-E23,,,,
-E24,,,,
-E25,,,,
-E26,,,,
-E27,,,,
-E28,,,,
-E29,,,,
-E30,,,,
-E31,,,,
-E32,,,,
-E33,,,,
-E34,,,,
-E35,,,,
-E36,,,,
-E37,,,,
-E38,,,,
-E39,,,,
-E40,,,,
-E41,,,,
-E42,,,,
-E43,,,,
-E44,,,,
-E45,,,,
-E46,,,,
-E47,,,,
-E48,,,,
-E49,,,,
-E50,,,,
+case_id,identity,missing_parts,condition_grade,disposition,note
+E01,yes,,Used - Like New,restock,looks like a pink octopus plush and it's clean
+E02,yes,,Used - Like New,restock,"blue-white vase, no damage visible"
+E03,yes,,Used - Very Good,refurbish,"black pouch with strap, slight usage marks"
+E04,yes,,Used - Like New,restock,claw clip in neat condition
+E05,yes,,Used - Like New,restock,water bottle with lid properly attached
+E06,yes,,Used - Like New,restock,earbud case open with both earbuds placed outside
+E07,yes,,Used - Very Good,refurbish,white adapter with a black cable
+E08,no,?,UNCERTAIN,pending_review,"this is a soft toy, not a charger"
+E09,no,?,UNCERTAIN,pending_review,comb is shown instead of vase
+E10,no,?,UNCERTAIN,pending_review,toner bottle instead of water bottle
+E11,no,?,UNCERTAIN,pending_review,"claw clip visible, not the mask jar"
+E12,no,?,UNCERTAIN,pending_review,wired earphones instead of pouch
+E13,no,?,UNCERTAIN,pending_review,bottle shown instead of toner
+E14,yes,lid,Used - Good,refurbish,bottle is there but lid missing
+E15,yes,cap,Used - Good,dispose,toner partly used and cap not present
+E16,yes,lid,Used - Very Good,dispose,Plum jar but lid is missing
+E17,uncertain,cable,Used - Good,pending_review,"plain white adapter, no cable visible"
+E18,yes,cable,Used - Very Good,refurbish,"only adapter present, cable missing"
+E19,yes,adapter,Unacceptable,dispose,only cable visible and it looks damaged/taped
+E20,yes,earbuds (pair of 2),Used - Very Good,liquidate,"case is empty, earbuds not inside"
+E21,uncertain,jar,Used - Good,pending_review,"just a white lid, not sure which product"
+E22,yes,bottle,Used - Very Good,liquidate,only flip lid is shown
+E23,uncertain,bottle,Used - Very Good,pending_review,"white cap alone, unclear item"
+E24,yes,,Used - Like New,restock,vase looks fine
+E25,yes,,Used - Like New,restock,claw clip in good condition
+E26,yes,,Used - Like New,restock,soft toy looks unused
+E27,yes,,Used - Good,dispose,wooden comb with visible usage
+E28,yes,,Used - Good,dispose,Plum jar open with lid next to it
+E29,yes,,Used - Good,dispose,"toner used partially, cap placed nearby"
+E30,yes,,Used - Very Good,refurbish,bottle with lid kept beside
+E31,yes,,Used - Good,dispose,wired earphones
+E32,yes,,Used - Good,dispose,comb
+E33,yes,,Used - Very Good,refurbish,earbuds placed inside open case
+E34,yes,,Used - Good,refurbish,pouch slightly worn and dim image
+E35,yes,,Unacceptable,dispose,adapter and cable both damaged/taped
+E36,yes,,Used - Acceptable,liquidate,pouch has scratches and marks
+E37,yes,,Used - Acceptable,liquidate,close-up shows stains on pouch
+E38,yes,,Used - Good,refurbish,clip hinge area shown
+E39,yes,?,Used - Acceptable,dispose,only part of earphone cable visible
+E40,yes,?,Unacceptable,dispose,cable end looks burnt/taped
+E41,yes,,Unacceptable,dispose,adapter with clearly damaged cable
+E42,uncertain,?,UNCERTAIN,pending_review,image is completely dark
+E43,yes,,Used - Very Good,refurbish,vase visible but lighting is low
+E44,yes,,UNCERTAIN,pending_review,"soft toy is blurry, can't judge condition"
+E45,uncertain,?,UNCERTAIN,pending_review,bottle is too far to confirm
+E46,yes,?,Used - Good,pending_review,"case closed, not sure about earbuds inside"
+E47,yes,?,Used - Very Good,pending_review,"angled case, can't see earbuds"
+E48,no,?,UNCERTAIN,pending_review,"OPPO adapter shown, not the expected one"
+E49,no,?,UNCERTAIN,pending_review,white damaged cable instead of expected cable
+E50,no,?,UNCERTAIN,pending_review,wired earphones instead of wireless ones

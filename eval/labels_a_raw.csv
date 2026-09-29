@@ -1,0 +1,51 @@
+case_id,identity,missing_parts,condition_grade,note
+E01,yes,,Used - Like New,looks like a pink octopus plush and it's clean
+E02,yes,,Used - Like New,"blue-white vase, no damage visible"
+E03,yes,,Used - Very Good,"black pouch with strap, slight usage marks"
+E04,yes,,Used - Like New,claw clip in neat condition
+E05,yes,,Used - Like New,water bottle with lid properly attached
+E06,yes,,Used - Like New,earbud case open with both earbuds placed outside
+E07,yes,,Used - Very Good,white adapter with a black cable
+E08,no,?,UNCERTAIN,"this is a soft toy, not a charger"
+E09,no,?,UNCERTAIN,comb is shown instead of vase
+E10,no,?,UNCERTAIN,toner bottle instead of water bottle
+E11,no,?,UNCERTAIN,"claw clip visible, not the mask jar"
+E12,no,?,UNCERTAIN,wired earphones instead of pouch
+E13,no,?,UNCERTAIN,bottle shown instead of toner
+E14,yes,lid,Used - Good,bottle is there but lid missing
+E15,yes,cap,Used - Good,toner partly used and cap not present
+E16,yes,lid,Used - Very Good,Plum jar but lid is missing
+E17,uncertain,cable,Used - Good,"plain white adapter, no cable visible"
+E18,yes,cable,Used - Very Good,"only adapter present, cable missing"
+E19,yes,adapter,Unacceptable,only cable visible and it looks damaged/taped
+E20,yes,earbuds (pair of 2),Used - Very Good,"case is empty, earbuds not inside"
+E21,uncertain,jar,Used - Good,"just a white lid, not sure which product"
+E22,yes,bottle,Used - Very Good,only flip lid is shown
+E23,uncertain,bottle,Used - Very Good,"white cap alone, unclear item"
+E24,yes,,Used - Like New,vase looks fine
+E25,yes,,Used - Like New,claw clip in good condition
+E26,yes,,Used - Like New,soft toy looks unused
+E27,yes,,Used - Good,wooden comb with visible usage
+E28,yes,,Used - Good,Plum jar open with lid next to it
+E29,yes,,Used - Good,"toner used partially, cap placed nearby"
+E30,yes,,Used - Very Good,bottle with lid kept beside
+E31,yes,,Used - Good,wired earphones
+E32,yes,,Used - Good,comb
+E33,yes,,Used - Very Good,earbuds placed inside open case
+E34,yes,,Used - Good,pouch slightly worn and dim image
+E35,yes,,Unacceptable,adapter and cable both damaged/taped
+E36,yes,,Used - Acceptable,pouch has scratches and marks
+E37,yes,,Used - Acceptable,close-up shows stains on pouch
+E38,yes,,Used - Good,clip hinge area shown
+E39,yes,?,Used - Acceptable,only part of earphone cable visible
+E40,yes,?,Unacceptable,cable end looks burnt/taped
+E41,yes,,Unacceptable,adapter with clearly damaged cable
+E42,uncertain,?,UNCERTAIN,image is completely dark
+E43,yes,,Used - Very Good,vase visible but lighting is low
+E44,yes,,UNCERTAIN,"soft toy is blurry, can't judge condition"
+E45,uncertain,?,UNCERTAIN,bottle is too far to confirm
+E46,yes,?,Used - Good,"case closed, not sure about earbuds inside"
+E47,yes,?,Used - Very Good,"angled case, can't see earbuds"
+E48,no,?,UNCERTAIN,"OPPO adapter shown, not the expected one"
+E49,no,?,UNCERTAIN,white damaged cable instead of expected cable
+E50,no,?,UNCERTAIN,wired earphones instead of wireless ones
