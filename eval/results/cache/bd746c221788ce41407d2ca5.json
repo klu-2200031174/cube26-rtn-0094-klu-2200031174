@@ -1,0 +1,77 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "UNCERTAIN",
+   "observed_product": "teal flip-top lid",
+   "confidence": 0.5,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the lid of the water bottle is visible in the image."
+    }
+   ],
+   "best_matching_sku": "SKU-WATERBOTTLE-FLIP"
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle body is not present in the image."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The teal flip-top lid is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "UNCERTAIN",
+   "confidence": 0.8,
+   "rationale": "The main component of the product (the bottle) is missing, making it impossible to assess the overall condition of the item.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the lid is present; the bottle is missing."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 6983,
+ "usage": {
+  "promptTokenCount": 2001,
+  "candidatesTokenCount": 420,
+  "totalTokenCount": 2421,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

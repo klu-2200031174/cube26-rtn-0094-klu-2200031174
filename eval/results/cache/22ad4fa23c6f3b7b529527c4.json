@@ -1,0 +1,81 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "Wired in-ear earphones",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a pair of wired earphones with a connector plug, not true wireless earbuds with a charging case."
+    }
+   ],
+   "best_matching_sku": "SKU-EARPHONES-WIRED",
+   "visible_identifiers": [
+    "wired cable",
+    "connector plug"
+   ]
+  },
+  "components": [
+   {
+    "part": "earbuds (pair of 2)",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Two wired ear pieces are visible."
+     }
+    ]
+   },
+   {
+    "part": "charging case",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The product is a wired earphone set which does not use a charging case."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 1.0,
+   "rationale": "The returned item is a completely different product (wired earphones) than the ordered true wireless earbuds.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a wired earphone set, which is a mismatch for the ordered SKU-EARBUDS-TWS."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 6421,
+ "usage": {
+  "promptTokenCount": 2134,
+  "candidatesTokenCount": 473,
+  "totalTokenCount": 2607,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1032
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

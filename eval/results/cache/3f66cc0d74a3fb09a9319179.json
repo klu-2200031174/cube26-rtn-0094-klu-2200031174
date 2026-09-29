@@ -1,0 +1,72 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Hair claw clip",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a hair claw clip with visible interlocking teeth."
+    }
+   ],
+   "best_matching_sku": "SKU-CLAWCLIP"
+  },
+  "components": [
+   {
+    "part": "clip",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The hair claw clip is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The clip appears to be missing the spring hinge mechanism, rendering it non-functional.",
+    "severity": "severe",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 1.0,
+   "rationale": "The item is missing its essential spring hinge mechanism, making it non-functional.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The hinge area is empty and the spring is missing."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 8109,
+ "usage": {
+  "promptTokenCount": 1947,
+  "candidatesTokenCount": 378,
+  "totalTokenCount": 2325,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 845
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

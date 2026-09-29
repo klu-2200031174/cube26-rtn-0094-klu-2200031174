@@ -1,0 +1,77 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "A single white screw-on lid, missing the jar.",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the lid is visible; the jar is missing."
+    }
+   ],
+   "best_matching_sku": "SKU-FACEMASK-JAR"
+  },
+  "components": [
+   {
+    "part": "jar",
+    "status": "ABSENT",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The jar is not present in the image."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The lid is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.9,
+   "rationale": "The product is incomplete as the jar is missing.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the lid is present; the jar is missing."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 11218,
+ "usage": {
+  "promptTokenCount": 2030,
+  "candidatesTokenCount": 400,
+  "totalTokenCount": 2430,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 928
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

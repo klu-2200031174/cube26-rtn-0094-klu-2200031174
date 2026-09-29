@@ -1,0 +1,69 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "white wired earphones",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item shown is a pair of white wired earphones, not a black zip pouch."
+    }
+   ],
+   "best_matching_sku": ""
+  },
+  "components": [
+   {
+    "part": "pouch",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The only item visible is a pair of earphones; no pouch is present."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 1.0,
+   "rationale": "The item returned is completely different from the ordered product.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a pair of earphones, which does not match the ordered black pouch."
+    }
+   ]
+  },
+  "unexpected_items": [
+   "white wired earphones"
+  ]
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 5281,
+ "usage": {
+  "promptTokenCount": 1944,
+  "candidatesTokenCount": 352,
+  "totalTokenCount": 2296,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 842
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Plush soft toy",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a plush soft toy consistent with the description."
+    }
+   ],
+   "best_matching_sku": "SKU-SOFTTOY"
+  },
+  "components": [
+   {
+    "part": "soft toy",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The soft toy is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The item appears clean and intact with no visible damage, but it is not in original factory packaging.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The plush fabric appears clean and in good condition."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9297,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 335,
+  "totalTokenCount": 2271,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

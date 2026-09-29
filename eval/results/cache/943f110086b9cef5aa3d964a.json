@@ -1,0 +1,71 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "Hair comb",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "A brown hair comb is present instead of the ordered flower vase."
+    }
+   ],
+   "best_matching_sku": "",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "vase",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "No flower vase is present in the photo."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The visible hair comb is out of packaging and shows slight wear/discoloration consistent with light use, but remains intact.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "An unpackaged hair comb is shown on a fabric surface."
+    }
+   ]
+  },
+  "unexpected_items": [
+   "hair comb"
+  ]
+ },
+ "model_version": "gemini-3.6-flash",
+ "latency_ms": 9594,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 361,
+  "totalTokenCount": 3108,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "thoughtsTokenCount": 811,
+  "serviceTier": "standard"
+ }
+}

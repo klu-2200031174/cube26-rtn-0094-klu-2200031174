@@ -1,0 +1,86 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "UNCERTAIN",
+   "observed_product": "OPPO wall charging adapter",
+   "confidence": 0.8,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The adapter is clearly branded OPPO, which matches the ordered product, but the cable is missing from the image."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-B",
+   "visible_identifiers": [
+    "OPPO branding"
+   ]
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white OPPO adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "ABSENT",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Only the adapter is present in the image; no cable is visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Minor surface scuffs on the adapter casing.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.8,
+   "rationale": "The adapter appears to be in good condition with only minor cosmetic wear, but it is loose and missing the cable.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The adapter shows minor surface wear consistent with light use."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9609,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 490,
+  "totalTokenCount": 2578,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

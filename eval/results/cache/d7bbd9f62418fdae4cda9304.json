@@ -1,0 +1,88 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Frosted plastic water bottle with teal-to-orange gradient and printed motivational time markers, missing lid",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Frosted plastic water bottle with a teal-to-orange gradient and printed time markers such as 'GREAT START'."
+    }
+   ],
+   "best_matching_sku": "SKU-WATERBOTTLE-FLIP",
+   "visible_identifiers": [
+    "teal-to-orange gradient",
+    "printed time markers and motivational text"
+   ]
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle body is clearly visible standing upright."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The top of the bottle is open and the lid is missing entirely."
+     }
+    ]
+   }
+  ],
+  "observed_state": "damaged",
+  "damage": [
+   {
+    "description": "Missing lid component",
+    "severity": "severe",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.95,
+   "rationale": "The item is missing its essential lid component, making it incomplete and unusable as a complete product.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The lid is missing from the bottle."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 3422,
+ "usage": {
+  "promptTokenCount": 2001,
+  "candidatesTokenCount": 513,
+  "totalTokenCount": 2514,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

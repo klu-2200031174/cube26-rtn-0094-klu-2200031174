@@ -1,0 +1,68 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Decorative flower vase, single piece.",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Single decorative flower vase with blue and white painted patterns."
+    }
+   ],
+   "best_matching_sku": "SKU-VASE",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "vase",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The flower vase is clearly visible standing on a patterned surface."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The vase appears intact and clean with no visible damage, wear, or defects, though it is unboxed.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Vase surface is clean and intact with no visible chips, cracks, or scratches."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 2703,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 363,
+  "totalTokenCount": 2299,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

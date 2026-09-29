@@ -1,0 +1,74 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Hair claw clip",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Brown hair claw clip with interlocking teeth and a spring hinge is clearly visible."
+    }
+   ],
+   "best_matching_sku": "SKU-CLAWCLIP",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "clip",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The hair claw clip is present and fully visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Paint chipping and minor wear along the edges of the clip",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The clip is fully functional with a spring hinge and interlocking teeth, but shows minor cosmetic wear such as paint chipping along the edges from consistent use.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Minor paint chipping and wear visible along the top edge of the claw clip."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 4936,
+ "usage": {
+  "promptTokenCount": 1947,
+  "candidatesTokenCount": 412,
+  "totalTokenCount": 2359,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 845
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

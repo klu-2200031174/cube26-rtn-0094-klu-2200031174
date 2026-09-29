@@ -1,0 +1,82 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Water bottle with flip lid",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The bottle features the teal-to-orange gradient, motivational time markers, and a teal flip-top lid with a carry loop as described."
+    }
+   ],
+   "best_matching_sku": "SKU-WATERBOTTLE-FLIP",
+   "visible_identifiers": [
+    "teal-to-orange gradient",
+    "motivational time markers",
+    "teal flip-top lid"
+   ]
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle body is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The teal flip-top lid is visible next to the bottle."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The item appears to be in excellent condition with no visible signs of wear, damage, or dirt, though it is not in its original packaging.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The bottle and lid appear clean and free of scratches or other damage."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 5358,
+ "usage": {
+  "promptTokenCount": 2001,
+  "candidatesTokenCount": 483,
+  "totalTokenCount": 2484,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

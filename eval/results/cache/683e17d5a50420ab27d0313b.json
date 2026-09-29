@@ -1,0 +1,69 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Pink plush octopus soft toy",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "A pink plush octopus soft toy is visible, matching the description of a plush soft toy."
+    }
+   ],
+   "best_matching_sku": "SKU-SOFTTOY",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "soft toy",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The plush octopus toy is fully visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The plush toy is in excellent, clean condition with no visible wear, stains, or damage, but is missing any original packaging or tags.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The plush fabric is clean and the stitching is intact with no visible defects."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash",
+ "latency_ms": 8922,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 371,
+  "totalTokenCount": 3394,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   }
+  ],
+  "thoughtsTokenCount": 1087,
+  "serviceTier": "standard"
+ }
+}

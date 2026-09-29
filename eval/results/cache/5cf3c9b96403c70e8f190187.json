@@ -1,0 +1,85 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "OPPO charger with black cable",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The adapter clearly shows OPPO branding, which contradicts the Samsung branding required for the ordered product."
+    },
+    {
+     "image_index": 0,
+     "observation": "The cable attached to the adapter is black, whereas the ordered product requires a white cable."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-B",
+   "visible_identifiers": [
+    "OPPO branding on adapter",
+    "black cable"
+   ]
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white OPPO adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "A black cable is attached to the adapter."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.8,
+   "rationale": "The item appears to be in good physical condition with no obvious signs of damage, though it is clearly used and not in original packaging.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The adapter and cable appear clean and intact with no visible scratches or damage."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9797,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 495,
+  "totalTokenCount": 2583,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

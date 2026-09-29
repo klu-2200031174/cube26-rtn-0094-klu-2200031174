@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Face toner bottle",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a tall bottle labeled as Ginseng Essence Water, consistent with a face toner."
+    }
+   ],
+   "best_matching_sku": "SKU-TONER"
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cap",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle is shown without its cap."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The bottle is missing its cap and appears to have been opened and partially used.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The product is missing its cap and shows signs of previous use, but the bottle itself is intact.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Bottle is missing the cap and contains less than a full amount of liquid."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9312,
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 462,
+  "totalTokenCount": 2574,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1010
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

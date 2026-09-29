@@ -1,0 +1,80 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "A single white cap, likely from a bottle or jar, but the bottle itself is missing.",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only a cap is visible in the image; the bottle is missing."
+    }
+   ],
+   "best_matching_sku": "",
+   "visible_identifiers": [
+    "white cap"
+   ]
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "ABSENT",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle is not present in the image."
+     }
+    ]
+   },
+   {
+    "part": "cap",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The cap is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.9,
+   "rationale": "The product is incomplete as the bottle is missing, leaving only the cap.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the cap is present; the main component (bottle) is missing."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 8843,
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 427,
+  "totalTokenCount": 2539,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1010
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

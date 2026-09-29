@@ -1,0 +1,68 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Comb",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "An orange-brown wooden hair comb with a single fine row of teeth is clearly visible."
+    }
+   ],
+   "best_matching_sku": "SKU-COMB",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "comb",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The comb is fully visible on the patterned surface."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The comb is fully intact and in clean, functional condition, with no packaging but no signs of wear.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The comb has no visible scratches, dents, or signs of usage."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 2842,
+ "usage": {
+  "promptTokenCount": 1930,
+  "candidatesTokenCount": 357,
+  "totalTokenCount": 2287,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 828
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "Water bottle with time markers",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a plastic water bottle with time markers and a flip-top lid, not a face toner bottle."
+    }
+   ],
+   "best_matching_sku": ""
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The main body of the water bottle is visible."
+     }
+    ]
+   },
+   {
+    "part": "cap",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The flip-top lid/cap is visible next to the bottle."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 1.0,
+   "rationale": "The item is a water bottle, which is a completely different product than the ordered face toner bottle.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a water bottle, not the ordered face toner."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 7000,
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 419,
+  "totalTokenCount": 2531,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1010
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

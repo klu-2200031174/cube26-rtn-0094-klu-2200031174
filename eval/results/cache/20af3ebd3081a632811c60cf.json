@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "White wall adapter and white USB-C cable",
+   "confidence": 0.8,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item consists of a white wall adapter and a white USB-C cable, consistent with the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-A"
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "White wall adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "White USB-C cable is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The cable has visible fraying and damage near the connector ends, with added protective wraps.",
+    "severity": "severe",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.9,
+   "rationale": "The cable shows significant signs of wear and damage (fraying) near the connectors, rendering it potentially unsafe or unreliable.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Visible fraying and damage to the cable insulation near the connectors."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 11093,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 478,
+  "totalTokenCount": 2566,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

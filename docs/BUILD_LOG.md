@@ -14,3 +14,5 @@
 | 2026-09-29 | Evaluation set: 50 held-out cases, one phone photo each, 10 scenarios (eval/eval_set.csv, eval/photo_map.csv) | Evaluation rule: 50 unseen units |
 | 2026-09-29 | Catalogue: chargers split into white Samsung (white cable) and OPPO (white adapter, black cable); a flip-lid water bottle replaces the perfume bottle, which was not available | Match the real items photographed |
 | 2026-09-29 | Two label sets (A and B) recorded; expected dispositions derived from the labels with the same rule table as the agent (eval/derive_dispositions.py) | Disposition accuracy measures rule-consistent outcomes |
+| 2026-09-29 | Fix: evaluation crashed on Windows when removing its temporary database (file still open) -> database closed first, cleanup errors ignored | First full eval run on Windows |
+| 2026-09-29 | Evaluation run on 50 units: identity 91.5% (0 wrong items accepted), completeness 100% on right-item cases, disposition 73%, review rate 34%; failure modes in docs/EVAL_REPORT.md | Evaluation |

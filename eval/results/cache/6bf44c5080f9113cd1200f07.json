@@ -1,0 +1,77 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "UNCERTAIN",
+   "observed_product": "White wall charging adapter",
+   "confidence": 0.6,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "A white wall charging adapter is visible, but the branding is not clearly legible to confirm it is Samsung, and the cable is missing."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-A"
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white wall adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "ABSENT",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The cable is not present in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.7,
+   "rationale": "The adapter appears to be in good condition, but it is loose and missing the cable, suggesting it has been used.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The adapter is loose on a surface without its original packaging or cable."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 8000,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 433,
+  "totalTokenCount": 2521,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

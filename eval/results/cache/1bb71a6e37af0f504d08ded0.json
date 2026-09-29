@@ -1,0 +1,76 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Black zip pouch",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a black pouch with a zip closure, matching the description."
+    }
+   ],
+   "best_matching_sku": "SKU-POUCH-BLK",
+   "visible_identifiers": [
+    "black colour",
+    "zip closure"
+   ]
+  },
+  "components": [
+   {
+    "part": "pouch",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The pouch is clearly visible in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Visible smudges or stains on the surface of the pouch.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.9,
+   "rationale": "The pouch appears to be in good condition with only minor surface marks/stains visible.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Minor surface marks are visible on the black material."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 4547,
+ "usage": {
+  "promptTokenCount": 1944,
+  "candidatesTokenCount": 405,
+  "totalTokenCount": 2349,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 842
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

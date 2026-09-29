@@ -1,0 +1,92 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Face toner bottle",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a tall bottle containing liquid, consistent with the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-TONER",
+   "visible_identifiers": [
+    "tall bottle",
+    "cap"
+   ]
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The bottle is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cap",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The cap is visible next to the bottle."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The label on the bottle appears stained or discolored.",
+    "severity": "minor",
+    "image_index": 0
+   },
+   {
+    "description": "The bottle is partially empty, indicating it has been used.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The product is clearly used as it is partially empty and the label shows signs of wear/staining, but it remains functional.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Bottle is partially empty and label shows staining."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 7952,
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 516,
+  "totalTokenCount": 2628,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1010
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

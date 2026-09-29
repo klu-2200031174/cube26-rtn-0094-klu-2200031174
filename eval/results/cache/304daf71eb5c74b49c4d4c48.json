@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "UNCERTAIN",
+   "observed_product": "white USB-C cable",
+   "confidence": 0.8,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only the cable is visible; the adapter is missing."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-A"
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The adapter is not present in the image."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white USB-C cable is visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The cable has visible wear, fraying near the connector, and added protective coil accessories.",
+    "severity": "moderate",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The cable shows clear signs of wear and fraying near the connector, indicating consistent use.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Visible fraying and wear on the cable casing near the connector."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9592,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 462,
+  "totalTokenCount": 2550,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

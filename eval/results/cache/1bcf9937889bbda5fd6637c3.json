@@ -1,0 +1,67 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true,
+    "issue": "The image is slightly blurry but the subject is clearly identifiable as a plush soft toy."
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Plush soft toy",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a plush soft toy, consistent with the ordered product description."
+    }
+   ],
+   "best_matching_sku": "SKU-SOFTTOY"
+  },
+  "components": [
+   {
+    "part": "soft toy",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The soft toy is clearly visible in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.8,
+   "rationale": "The item appears to be in good condition with no visible damage, though it is out of original packaging and shows signs of handling.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The plush fabric appears clean and intact."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 8327,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 369,
+  "totalTokenCount": 2305,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

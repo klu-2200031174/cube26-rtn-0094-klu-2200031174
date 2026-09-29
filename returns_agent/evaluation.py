@@ -112,7 +112,8 @@ def run_eval(provider: Provider, eval_dir: Path = EVAL_DIR, use_cache: bool = Tr
     results_dir = eval_dir / "results"
     cprov = CachingProvider(provider, results_dir / "cache", use_cache)
 
-    with tempfile.TemporaryDirectory() as tmp:
+    # ignore_cleanup_errors: on Windows the SQLite file can still be locked at exit
+    with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         service = ReturnsService(Store(Path(tmp)), cprov)
         rows = []
         for case in cases:
@@ -139,6 +140,7 @@ def run_eval(provider: Provider, eval_dir: Path = EVAL_DIR, use_cache: bool = Tr
             mb = sorted(x.strip().lower() for x in lb.get(cid, {}).get("missing_parts", "").split(";") if x.strip() and x.strip() != "?")
             row["missing_parts"] = {"agent": agent_missing, "truth": ma if ma == mb else None}
             rows.append(row)
+        service.store.db.close()  # release the temp database before the folder is removed (Windows)
 
     report = summarise(rows)
     results_dir.mkdir(parents=True, exist_ok=True)

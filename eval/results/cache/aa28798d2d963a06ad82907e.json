@@ -1,0 +1,85 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "True wireless earbuds charging case",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Shows a pill-shaped flip-lid charging case consistent with true wireless earbuds"
+    }
+   ],
+   "best_matching_sku": "SKU-EARBUDS-TWS",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "earbuds (pair of 2)",
+    "status": "NOT_VISIBLE",
+    "confidence": 0.9,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Only the closed charging case is visible, the earbuds inside cannot be seen"
+     }
+    ]
+   },
+   {
+    "part": "charging case",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Pill-shaped flip-lid charging case is clearly visible on the patterned surface"
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Minor surface scratches and smudges on the glossy case exterior",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.8,
+   "rationale": "The charging case shows minor cosmetic wear such as surface scuffs and scratches from handling, but is intact.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Minor surface scuffs and scratches visible on the reflective body of the charging case"
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 3500,
+ "usage": {
+  "promptTokenCount": 2134,
+  "candidatesTokenCount": 505,
+  "totalTokenCount": 2639,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1032
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

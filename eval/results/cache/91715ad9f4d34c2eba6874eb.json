@@ -1,0 +1,81 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Water bottle with flip lid",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The bottle shows the characteristic teal-to-orange gradient and a teal flip-top lid."
+    }
+   ],
+   "best_matching_sku": "SKU-WATERBOTTLE-FLIP",
+   "visible_identifiers": [
+    "teal-to-orange gradient",
+    "teal flip-top lid"
+   ]
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The main body of the bottle is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The teal flip-top lid is attached to the bottle."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.7,
+   "rationale": "The item is loose and not in original packaging, suggesting it has been handled or used.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The bottle is sitting on the floor outside of any packaging."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 5827,
+ "usage": {
+  "promptTokenCount": 2001,
+  "candidatesTokenCount": 453,
+  "totalTokenCount": 2454,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

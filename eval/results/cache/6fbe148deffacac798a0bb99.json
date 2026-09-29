@@ -1,0 +1,72 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Comb",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a hair comb with a row of teeth."
+    }
+   ],
+   "best_matching_sku": "SKU-COMB"
+  },
+  "components": [
+   {
+    "part": "comb",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The comb is clearly visible in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The comb shows signs of wear and surface scratches consistent with use.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.9,
+   "rationale": "The comb is functional but shows visible signs of wear and surface marks from use.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Surface wear and minor scratches are visible on the body of the comb."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 8594,
+ "usage": {
+  "promptTokenCount": 1930,
+  "candidatesTokenCount": 375,
+  "totalTokenCount": 2305,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 828
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

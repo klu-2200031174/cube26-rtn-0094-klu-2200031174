@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "True wireless earbuds with charging case",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a pair of wireless earbuds in a flip-lid charging case, matching the description of the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-EARBUDS-TWS"
+  },
+  "components": [
+   {
+    "part": "earbuds (pair of 2)",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Two earbuds are visible inside the charging case."
+     }
+    ]
+   },
+   {
+    "part": "charging case",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The charging case is visible and open."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Minor surface smudges and light wear on the charging case and earbuds.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.9,
+   "rationale": "The item appears to be in good working condition with only minor cosmetic signs of use such as light smudges.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The earbuds and case are intact and clean, showing only minor surface wear."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 10077,
+ "usage": {
+  "promptTokenCount": 2134,
+  "candidatesTokenCount": 484,
+  "totalTokenCount": 2618,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1032
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

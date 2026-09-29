@@ -1,0 +1,87 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Plum rice water & niacinamide cloud whip face mask",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a round jar with a screw-on lid, matching the visual description of the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-FACEMASK-JAR",
+   "visible_identifiers": [
+    "plum",
+    "rice water & niacinamide cloud whip face mask"
+   ]
+  },
+  "components": [
+   {
+    "part": "jar",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The jar is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The lid is visible next to the jar."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The product is open and the lid is removed from the jar.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The product appears to be in good condition, but it is clearly opened and the lid is removed, indicating it is not factory sealed.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The jar is open and the lid is sitting separately on the surface."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 5109,
+ "usage": {
+  "promptTokenCount": 2030,
+  "candidatesTokenCount": 509,
+  "totalTokenCount": 2539,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 928
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

@@ -1,0 +1,82 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "brown plastic hair claw clip",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The image shows a brown plastic hair claw clip instead of the ordered cosmetic face mask jar."
+    }
+   ],
+   "best_matching_sku": "",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "jar",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The jar is not present in the image; only a hair claw clip is visible."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The lid is not present in the image; only a hair claw clip is visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "UNCERTAIN",
+   "confidence": 1.0,
+   "rationale": "The ordered product is completely absent from the shipment, replaced by an incorrect item (hair claw clip). Thus, the condition of the ordered product cannot be evaluated.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Only a hair claw clip is visible, so the condition of the face mask jar cannot be assessed."
+    }
+   ]
+  },
+  "unexpected_items": [
+   "brown plastic hair claw clip"
+  ]
+ },
+ "model_version": "gemini-3.5-flash",
+ "latency_ms": 8092,
+ "usage": {
+  "promptTokenCount": 2030,
+  "candidatesTokenCount": 473,
+  "totalTokenCount": 3282,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 928
+   }
+  ],
+  "thoughtsTokenCount": 779,
+  "serviceTier": "standard"
+ }
+}

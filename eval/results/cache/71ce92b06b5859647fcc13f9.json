@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "White Samsung wall charging adapter with white USB-C cable",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a white wall adapter with a white cable, consistent with the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-A"
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white cable is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The cable has pink protective tape or wraps applied at both ends near the connectors, indicating wear or repair.",
+    "severity": "moderate",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Good",
+   "confidence": 0.8,
+   "rationale": "The item shows signs of use, specifically the application of tape/wraps to the cable ends, which suggests wear or an attempt to prevent fraying.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Pink tape/wraps are visible on the cable ends."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 10297,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 483,
+  "totalTokenCount": 2571,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

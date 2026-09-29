@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Samsung charger with white USB-C cable",
+   "confidence": 0.9,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The cable is white with a USB-C connector, consistent with the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-A"
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "NOT_VISIBLE",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Only the cable is clearly visible in the frame."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The white USB-C cable is clearly visible."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Heavy staining and potential fraying/damage at the base of the USB-C connector.",
+    "severity": "severe",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.9,
+   "rationale": "The cable shows significant staining and damage at the connector end, rendering it in poor condition.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Visible dark staining and material degradation at the cable connector."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 18655,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 469,
+  "totalTokenCount": 2557,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

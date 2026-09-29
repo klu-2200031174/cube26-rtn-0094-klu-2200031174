@@ -1,0 +1,83 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Phone charger B - OPPO (white adapter + black USB-C cable)",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Visible white adapter with OPPO branding and a separate black charging cable."
+    }
+   ],
+   "best_matching_sku": "SKU-CHARGER-B",
+   "visible_identifiers": [
+    "OPPO branding on adapter",
+    "White wall adapter",
+    "Black USB-C cable"
+   ]
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "White wall charging adapter is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Black USB-C charging cable is connected to the adapter and laid out on the surface."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The charger and cable appear clean, intact, and fully functional without visible wear, though out of factory packaging.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Items are clean with no visible scratches, dents, or signs of wear."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 12188,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 478,
+  "totalTokenCount": 2566,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

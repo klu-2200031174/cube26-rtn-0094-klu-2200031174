@@ -1,0 +1,2835 @@
+{
+  "summary": {
+    "cases_total": 50,
+    "cases_run": 50,
+    "cases_with_errors": [],
+    "identity": {
+      "human_percent_agreement": 0.94,
+      "human_cohen_kappa": 0.859,
+      "n_ground_truth": 47,
+      "n_disputed": 3,
+      "accuracy_all": 0.915,
+      "accuracy_when_agent_decided": 0.955,
+      "agent_uncertain_rate": 0.1,
+      "agent_uncertain_rate_on_disputed": 0.667,
+      "confusion": {
+        "truth=PASS -> agent=PASS": 33,
+        "truth=FAIL -> agent=FAIL": 9,
+        "truth=PASS -> agent=UNCERTAIN": 2,
+        "truth=UNCERTAIN -> agent=FAIL": 2,
+        "truth=UNCERTAIN -> agent=UNCERTAIN": 1
+      },
+      "false_positives": [],
+      "false_negatives": [],
+      "FP": 0,
+      "FN": 0
+    },
+    "completeness": {
+      "human_percent_agreement": 0.96,
+      "human_cohen_kappa": 0.935,
+      "n_ground_truth": 48,
+      "n_disputed": 2,
+      "accuracy_all": 0.792,
+      "accuracy_when_agent_decided": 0.778,
+      "agent_uncertain_rate": 0.06,
+      "agent_uncertain_rate_on_disputed": 0.0,
+      "confusion": {
+        "truth=PASS -> agent=PASS": 25,
+        "truth=UNCERTAIN -> agent=FAIL": 8,
+        "truth=UNCERTAIN -> agent=PASS": 2,
+        "truth=FAIL -> agent=FAIL": 10,
+        "truth=UNCERTAIN -> agent=UNCERTAIN": 3
+      },
+      "false_positives": [],
+      "false_negatives": [],
+      "FP": 0,
+      "FN": 0
+    },
+    "condition_grade": {
+      "human_percent_agreement": 0.62,
+      "human_cohen_kappa": 0.523,
+      "n_ground_truth": 31,
+      "n_disputed": 19,
+      "accuracy_all": 0.516,
+      "accuracy_when_agent_decided": 0.444,
+      "agent_uncertain_rate": 0.1,
+      "agent_uncertain_rate_on_disputed": 0.053,
+      "confusion": {
+        "truth=Used - Like New -> agent=Used - Like New": 4,
+        "truth=Used - Very Good -> agent=Used - Like New": 1,
+        "truth=UNCERTAIN -> agent=UNCERTAIN": 4,
+        "truth=UNCERTAIN -> agent=Used - Good": 2,
+        "truth=UNCERTAIN -> agent=Unacceptable": 4,
+        "truth=Used - Good -> agent=Used - Good": 4,
+        "truth=Used - Very Good -> agent=Used - Very Good": 2,
+        "truth=Used - Very Good -> agent=Used - Good": 1,
+        "truth=Used - Like New -> agent=Unacceptable": 1,
+        "truth=Used - Good -> agent=Used - Like New": 2,
+        "truth=Used - Acceptable -> agent=Used - Good": 2,
+        "truth=Unacceptable -> agent=Unacceptable": 2,
+        "truth=UNCERTAIN -> agent=Used - Very Good": 2
+      },
+      "within_one_grade": 0.516
+    },
+    "disposition": {
+      "human_percent_agreement": 0.82,
+      "human_cohen_kappa": 0.763,
+      "n_ground_truth": 41,
+      "n_disputed": 9,
+      "accuracy_all": 0.732,
+      "accuracy_when_agent_decided": 0.654,
+      "agent_uncertain_rate": 0.34,
+      "agent_uncertain_rate_on_disputed": 0.222,
+      "confusion": {
+        "truth=restock -> agent=restock": 4,
+        "truth=refurbish -> agent=refurbish": 3,
+        "truth=refurbish -> agent=restock": 1,
+        "truth=pending_review -> agent=pending_review": 13,
+        "truth=refurbish -> agent=dispose": 1,
+        "truth=dispose -> agent=dispose": 9,
+        "truth=dispose -> agent=liquidate": 1,
+        "truth=refurbish -> agent=pending_review": 1,
+        "truth=liquidate -> agent=liquidate": 1,
+        "truth=liquidate -> agent=pending_review": 1,
+        "truth=restock -> agent=dispose": 1,
+        "truth=liquidate -> agent=refurbish": 2,
+        "truth=pending_review -> agent=refurbish": 2,
+        "truth=pending_review -> agent=liquidate": 1
+      }
+    },
+    "missing_parts_exact_match": 0.84,
+    "review_rate": 0.34,
+    "model_failures": 0,
+    "latency_ms": {
+      "p50": 8100.5,
+      "p95": 12188,
+      "max": 40327
+    },
+    "tokens": {
+      "total": 129400,
+      "mean_per_case": 2588
+    },
+    "by_scenario": {
+      "complete_correct": {
+        "n": 7,
+        "disposition_correct": 4,
+        "review": 0
+      },
+      "wrong_product": {
+        "n": 6,
+        "disposition_correct": 6,
+        "review": 6
+      },
+      "missing_accessory": {
+        "n": 5,
+        "disposition_correct": 1,
+        "review": 2
+      },
+      "main_part_missing": {
+        "n": 5,
+        "disposition_correct": 3,
+        "review": 4
+      },
+      "new_looking": {
+        "n": 4,
+        "disposition_correct": 2,
+        "review": 0
+      },
+      "lightly_used": {
+        "n": 7,
+        "disposition_correct": 5,
+        "review": 0
+      },
+      "damaged": {
+        "n": 5,
+        "disposition_correct": 2,
+        "review": 0
+      },
+      "heavily_damaged": {
+        "n": 2,
+        "disposition_correct": 2,
+        "review": 0
+      },
+      "ambiguous": {
+        "n": 6,
+        "disposition_correct": 2,
+        "review": 2
+      },
+      "similar_lookalike": {
+        "n": 3,
+        "disposition_correct": 3,
+        "review": 3
+      }
+    }
+  },
+  "cases": [
+    {
+      "case_id": "E01",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9110-089571",
+      "model_latency_ms": 8922,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 371,
+        "totalTokenCount": 3394,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          }
+        ],
+        "thoughtsTokenCount": 1087,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Like New",
+        "truth": "Used - Like New"
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "restock",
+        "truth": "restock"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E02",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9106-D97E85",
+      "model_latency_ms": 8390,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 371,
+        "totalTokenCount": 2955,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          }
+        ],
+        "thoughtsTokenCount": 648,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "refurbish",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E03",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9108-8E78DE",
+      "model_latency_ms": 11844,
+      "usage": {
+        "promptTokenCount": 1944,
+        "candidatesTokenCount": 427,
+        "totalTokenCount": 2821,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 842
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 450,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E04",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9107-D604D3",
+      "model_latency_ms": 8875,
+      "usage": {
+        "promptTokenCount": 1947,
+        "candidatesTokenCount": 353,
+        "totalTokenCount": 3078,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 845
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 778,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Like New",
+        "truth": "Used - Like New"
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "restock",
+        "truth": "restock"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E05",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9105-844032",
+      "model_latency_ms": 8092,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 286,
+        "totalTokenCount": 2896,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 609,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Like New",
+        "truth": "Used - Like New"
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "restock",
+        "truth": "restock"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E06",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9006-6E1B48",
+      "model_latency_ms": 11532,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 470,
+        "totalTokenCount": 3118,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 514,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "refurbish",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E07",
+      "scenario": "complete_correct",
+      "record_id": "RTN-9102-D6AD9B",
+      "model_latency_ms": 12188,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 478,
+        "totalTokenCount": 2566,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Very Good",
+        "truth": "Used - Very Good"
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E08",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9101-1ACD7E",
+      "model_latency_ms": 40327,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 444,
+        "totalTokenCount": 3266,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 734,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "adapter",
+          "cable"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E09",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9106-1989FC",
+      "model_latency_ms": 9594,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 361,
+        "totalTokenCount": 3108,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "thoughtsTokenCount": 811,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "vase"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E10",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9105-826D8A",
+      "model_latency_ms": 3391,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 452,
+        "totalTokenCount": 2453,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "bottle",
+          "lid"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E11",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9103-7FBFDB",
+      "model_latency_ms": 8092,
+      "usage": {
+        "promptTokenCount": 2030,
+        "candidatesTokenCount": 473,
+        "totalTokenCount": 3282,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 928
+          }
+        ],
+        "thoughtsTokenCount": 779,
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "jar",
+          "lid"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E12",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9108-67C9CD",
+      "model_latency_ms": 5281,
+      "usage": {
+        "promptTokenCount": 1944,
+        "candidatesTokenCount": 352,
+        "totalTokenCount": 2296,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 842
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "pouch"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E13",
+      "scenario": "wrong_product",
+      "record_id": "RTN-9104-BA5F2C",
+      "model_latency_ms": 7000,
+      "usage": {
+        "promptTokenCount": 2112,
+        "candidatesTokenCount": 419,
+        "totalTokenCount": 2531,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1010
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E14",
+      "scenario": "missing_accessory",
+      "record_id": "RTN-9105-99F36C",
+      "model_latency_ms": 3422,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 513,
+        "totalTokenCount": 2514,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R06_UNACCEPTABLE_SEVERE",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Used - Good",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [
+          "lid"
+        ],
+        "truth": [
+          "lid"
+        ]
+      }
+    },
+    {
+      "case_id": "E15",
+      "scenario": "missing_accessory",
+      "record_id": "RTN-9104-C2F62E",
+      "model_latency_ms": 9312,
+      "usage": {
+        "promptTokenCount": 2112,
+        "candidatesTokenCount": 462,
+        "totalTokenCount": 2574,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1010
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [
+          "cap"
+        ],
+        "truth": [
+          "cap"
+        ]
+      }
+    },
+    {
+      "case_id": "E16",
+      "scenario": "missing_accessory",
+      "record_id": "RTN-9103-C4A40A",
+      "model_latency_ms": 7922,
+      "usage": {
+        "promptTokenCount": 2030,
+        "candidatesTokenCount": 509,
+        "totalTokenCount": 2539,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 928
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R07_UNACCEPTABLE",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "liquidate",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [
+          "lid"
+        ],
+        "truth": [
+          "lid"
+        ]
+      }
+    },
+    {
+      "case_id": "E17",
+      "scenario": "missing_accessory",
+      "record_id": "RTN-9101-AE0603",
+      "model_latency_ms": 8000,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 433,
+        "totalTokenCount": 2521,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R04_IDENTITY_UNCERTAIN",
+      "model_failed": false,
+      "identity": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "PASS",
+        "truth": null
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "refurbish",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [
+          "cable"
+        ],
+        "truth": [
+          "cable"
+        ]
+      }
+    },
+    {
+      "case_id": "E18",
+      "scenario": "missing_accessory",
+      "record_id": "RTN-9102-D14FAB",
+      "model_latency_ms": 9609,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 490,
+        "totalTokenCount": 2578,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R04_IDENTITY_UNCERTAIN",
+      "model_failed": false,
+      "identity": {
+        "agent": "UNCERTAIN",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Very Good",
+        "truth": "Used - Very Good"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [
+          "cable"
+        ],
+        "truth": [
+          "cable"
+        ]
+      }
+    },
+    {
+      "case_id": "E19",
+      "scenario": "main_part_missing",
+      "record_id": "RTN-9101-B66367",
+      "model_latency_ms": 9592,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 462,
+        "totalTokenCount": 2550,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R04_IDENTITY_UNCERTAIN",
+      "model_failed": false,
+      "identity": {
+        "agent": "UNCERTAIN",
+        "label_a": "PASS",
+        "label_b": "UNCERTAIN",
+        "truth": null
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Unacceptable",
+        "label_b": "Used - Acceptable",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "dispose",
+        "label_b": "pending_review",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [
+          "adapter"
+        ],
+        "truth": [
+          "adapter"
+        ]
+      }
+    },
+    {
+      "case_id": "E20",
+      "scenario": "main_part_missing",
+      "record_id": "RTN-9006-37DB60",
+      "model_latency_ms": 6625,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 431,
+        "totalTokenCount": 2565,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R10_MISSING_CORE_PART",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Very Good",
+        "truth": "Used - Very Good"
+      },
+      "disposition": {
+        "agent": "liquidate",
+        "label_a": "liquidate",
+        "label_b": "liquidate",
+        "truth": "liquidate"
+      },
+      "missing_parts": {
+        "agent": [
+          "earbuds (pair of 2)"
+        ],
+        "truth": [
+          "earbuds (pair of 2)"
+        ]
+      }
+    },
+    {
+      "case_id": "E21",
+      "scenario": "main_part_missing",
+      "record_id": "RTN-9103-D9567E",
+      "model_latency_ms": 11218,
+      "usage": {
+        "promptTokenCount": 2030,
+        "candidatesTokenCount": 400,
+        "totalTokenCount": 2430,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 928
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Used - Good",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "jar"
+        ],
+        "truth": [
+          "jar"
+        ]
+      }
+    },
+    {
+      "case_id": "E22",
+      "scenario": "main_part_missing",
+      "record_id": "RTN-9105-DC6588",
+      "model_latency_ms": 6983,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 420,
+        "totalTokenCount": 2421,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R04_IDENTITY_UNCERTAIN",
+      "model_failed": false,
+      "identity": {
+        "agent": "UNCERTAIN",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "UNCERTAIN",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Like New",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "liquidate",
+        "label_b": "liquidate",
+        "truth": "liquidate"
+      },
+      "missing_parts": {
+        "agent": [
+          "bottle"
+        ],
+        "truth": [
+          "bottle"
+        ]
+      }
+    },
+    {
+      "case_id": "E23",
+      "scenario": "main_part_missing",
+      "record_id": "RTN-9104-EBE5F6",
+      "model_latency_ms": 8843,
+      "usage": {
+        "promptTokenCount": 2112,
+        "candidatesTokenCount": 427,
+        "totalTokenCount": 2539,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1010
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "bottle"
+        ],
+        "truth": [
+          "bottle"
+        ]
+      }
+    },
+    {
+      "case_id": "E24",
+      "scenario": "new_looking",
+      "record_id": "RTN-9106-92D5F4",
+      "model_latency_ms": 3000,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 360,
+        "totalTokenCount": 2296,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "refurbish",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E25",
+      "scenario": "new_looking",
+      "record_id": "RTN-9107-F62FD1",
+      "model_latency_ms": 8109,
+      "usage": {
+        "promptTokenCount": 1947,
+        "candidatesTokenCount": 378,
+        "totalTokenCount": 2325,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 845
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R06_UNACCEPTABLE_SEVERE",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Like New",
+        "truth": "Used - Like New"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "restock",
+        "label_b": "restock",
+        "truth": "restock"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E26",
+      "scenario": "new_looking",
+      "record_id": "RTN-9110-F49129",
+      "model_latency_ms": 9297,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 335,
+        "totalTokenCount": 2271,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Like New",
+        "label_b": "Used - Like New",
+        "truth": "Used - Like New"
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "restock",
+        "label_b": "restock",
+        "truth": "restock"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E27",
+      "scenario": "new_looking",
+      "record_id": "RTN-9109-2204EF",
+      "model_latency_ms": 2842,
+      "usage": {
+        "promptTokenCount": 1930,
+        "candidatesTokenCount": 357,
+        "totalTokenCount": 2287,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 828
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E28",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9103-37E519",
+      "model_latency_ms": 5109,
+      "usage": {
+        "promptTokenCount": 2030,
+        "candidatesTokenCount": 509,
+        "totalTokenCount": 2539,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 928
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E29",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9104-0B0207",
+      "model_latency_ms": 7952,
+      "usage": {
+        "promptTokenCount": 2112,
+        "candidatesTokenCount": 516,
+        "totalTokenCount": 2628,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1010
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E30",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9105-80F922",
+      "model_latency_ms": 5358,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 483,
+        "totalTokenCount": 2484,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Like New",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "refurbish",
+        "label_b": "restock",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E31",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9005-7AFF58",
+      "model_latency_ms": 9547,
+      "usage": {
+        "promptTokenCount": 2208,
+        "candidatesTokenCount": 394,
+        "totalTokenCount": 2602,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1106
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E32",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9109-72EEDF",
+      "model_latency_ms": 8594,
+      "usage": {
+        "promptTokenCount": 1930,
+        "candidatesTokenCount": 375,
+        "totalTokenCount": 2305,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 828
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E33",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9006-46FEE3",
+      "model_latency_ms": 10077,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 484,
+        "totalTokenCount": 2618,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Very Good",
+        "truth": "Used - Very Good"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E34",
+      "scenario": "lightly_used",
+      "record_id": "RTN-9108-9287F9",
+      "model_latency_ms": 4547,
+      "usage": {
+        "promptTokenCount": 1944,
+        "candidatesTokenCount": 405,
+        "totalTokenCount": 2349,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 842
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "Used - Good",
+        "label_b": "UNCERTAIN",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "refurbish",
+        "label_b": "pending_review",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E35",
+      "scenario": "damaged",
+      "record_id": "RTN-9101-55F4B5",
+      "model_latency_ms": 10297,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 483,
+        "totalTokenCount": 2571,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Unacceptable",
+        "label_b": "Used - Acceptable",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "dispose",
+        "label_b": "liquidate",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E36",
+      "scenario": "damaged",
+      "record_id": "RTN-9108-983FE1",
+      "model_latency_ms": 2859,
+      "usage": {
+        "promptTokenCount": 1944,
+        "candidatesTokenCount": 397,
+        "totalTokenCount": 2341,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 842
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Acceptable",
+        "label_b": "Used - Acceptable",
+        "truth": "Used - Acceptable"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "liquidate",
+        "label_b": "liquidate",
+        "truth": "liquidate"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E37",
+      "scenario": "damaged",
+      "record_id": "RTN-9108-F8ED3B",
+      "model_latency_ms": 19282,
+      "usage": {
+        "promptTokenCount": 1944,
+        "candidatesTokenCount": 407,
+        "totalTokenCount": 2351,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 842
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Acceptable",
+        "label_b": "Used - Acceptable",
+        "truth": "Used - Acceptable"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "liquidate",
+        "label_b": "liquidate",
+        "truth": "liquidate"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E38",
+      "scenario": "damaged",
+      "record_id": "RTN-9107-1EA50D",
+      "model_latency_ms": 4936,
+      "usage": {
+        "promptTokenCount": 1947,
+        "candidatesTokenCount": 412,
+        "totalTokenCount": 2359,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 845
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Good",
+        "truth": "Used - Good"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "refurbish",
+        "label_b": "refurbish",
+        "truth": "refurbish"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E39",
+      "scenario": "damaged",
+      "record_id": "RTN-9005-081A5E",
+      "model_latency_ms": 3609,
+      "usage": {
+        "promptTokenCount": 2208,
+        "candidatesTokenCount": 366,
+        "totalTokenCount": 2574,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1106
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R08_HYGIENE_USED",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "UNCERTAIN",
+        "label_b": "PASS",
+        "truth": null
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Acceptable",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E40",
+      "scenario": "heavily_damaged",
+      "record_id": "RTN-9101-B1F6E2",
+      "model_latency_ms": 18655,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 469,
+        "totalTokenCount": 2557,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R06_UNACCEPTABLE_SEVERE",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Unacceptable",
+        "label_b": "Unacceptable",
+        "truth": "Unacceptable"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E41",
+      "scenario": "heavily_damaged",
+      "record_id": "RTN-9101-F1ADD9",
+      "model_latency_ms": 11093,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 478,
+        "totalTokenCount": 2566,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R06_UNACCEPTABLE_SEVERE",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "Unacceptable",
+        "label_b": "Unacceptable",
+        "truth": "Unacceptable"
+      },
+      "disposition": {
+        "agent": "dispose",
+        "label_a": "dispose",
+        "label_b": "dispose",
+        "truth": "dispose"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E42",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9106-EF9198",
+      "model_latency_ms": 2797,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 358,
+        "totalTokenCount": 2294,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R02_NO_USABLE_IMAGES",
+      "model_failed": false,
+      "identity": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "completeness": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E43",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9106-6DFCDA",
+      "model_latency_ms": 2703,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 363,
+        "totalTokenCount": 2299,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R15_COMPLETE_LIKE_NEW",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Like New",
+        "label_a": "Used - Very Good",
+        "label_b": "UNCERTAIN",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "restock",
+        "label_a": "refurbish",
+        "label_b": "pending_review",
+        "truth": null
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E44",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9110-F1182D",
+      "model_latency_ms": 8327,
+      "usage": {
+        "promptTokenCount": 1936,
+        "candidatesTokenCount": 369,
+        "totalTokenCount": 2305,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 834
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E45",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9105-FE1F45",
+      "model_latency_ms": 5827,
+      "usage": {
+        "promptTokenCount": 2001,
+        "candidatesTokenCount": 453,
+        "totalTokenCount": 2454,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 899
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R16_COMPLETE_WEAR",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "UNCERTAIN",
+        "label_b": "PASS",
+        "truth": null
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "UNCERTAIN",
+        "label_b": "PASS",
+        "truth": null
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "refurbish",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E46",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9006-D73DE7",
+      "model_latency_ms": 3500,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 505,
+        "totalTokenCount": 2639,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R09_COMPLETENESS_UNCERTAIN",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "UNCERTAIN",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Good",
+        "label_b": "Used - Very Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E47",
+      "scenario": "ambiguous",
+      "record_id": "RTN-9006-2122C0",
+      "model_latency_ms": 7782,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 506,
+        "totalTokenCount": 2640,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R10_MISSING_CORE_PART",
+      "model_failed": false,
+      "identity": {
+        "agent": "PASS",
+        "label_a": "PASS",
+        "label_b": "PASS",
+        "truth": "PASS"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Used - Good",
+        "label_a": "Used - Very Good",
+        "label_b": "Used - Good",
+        "truth": null
+      },
+      "disposition": {
+        "agent": "liquidate",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "earbuds (pair of 2)"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E48",
+      "scenario": "similar_lookalike",
+      "record_id": "RTN-9101-8E35C2",
+      "model_latency_ms": 9797,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 495,
+        "totalTokenCount": 2583,
+        "promptTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "PASS",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Used - Very Good",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E49",
+      "scenario": "similar_lookalike",
+      "record_id": "RTN-9102-C0C7C4",
+      "model_latency_ms": 8312,
+      "usage": {
+        "promptTokenCount": 2088,
+        "candidatesTokenCount": 473,
+        "totalTokenCount": 2561,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 986
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "adapter"
+        ],
+        "truth": []
+      }
+    },
+    {
+      "case_id": "E50",
+      "scenario": "similar_lookalike",
+      "record_id": "RTN-9006-378FCB",
+      "model_latency_ms": 6421,
+      "usage": {
+        "promptTokenCount": 2134,
+        "candidatesTokenCount": 473,
+        "totalTokenCount": 2607,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1032
+          },
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1102
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "rule_id": "R03_IDENTITY_FAIL",
+      "model_failed": false,
+      "identity": {
+        "agent": "FAIL",
+        "label_a": "FAIL",
+        "label_b": "FAIL",
+        "truth": "FAIL"
+      },
+      "completeness": {
+        "agent": "FAIL",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "condition_grade": {
+        "agent": "Unacceptable",
+        "label_a": "UNCERTAIN",
+        "label_b": "UNCERTAIN",
+        "truth": "UNCERTAIN"
+      },
+      "disposition": {
+        "agent": "pending_review",
+        "label_a": "pending_review",
+        "label_b": "pending_review",
+        "truth": "pending_review"
+      },
+      "missing_parts": {
+        "agent": [
+          "charging case"
+        ],
+        "truth": []
+      }
+    }
+  ]
+}

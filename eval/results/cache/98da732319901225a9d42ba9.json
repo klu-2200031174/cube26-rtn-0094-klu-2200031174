@@ -1,0 +1,87 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Plum rice water & NIACINAMIDE cloud whip face mask",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The product is a round jar labeled as a face mask, matching the ordered product description."
+    }
+   ],
+   "best_matching_sku": "SKU-FACEMASK-JAR",
+   "visible_identifiers": [
+    "Plum",
+    "rice water & NIACINAMIDE cloud whip face mask"
+   ]
+  },
+  "components": [
+   {
+    "part": "jar",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The jar is clearly visible."
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The jar is open and the lid is not present in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "The jar is missing its lid and appears to have been opened.",
+    "severity": "moderate",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Unacceptable",
+   "confidence": 0.9,
+   "rationale": "The product is missing its lid, which is an essential component for a cosmetic jar, and it shows signs of use.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The jar is open and the lid is missing."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 7922,
+ "usage": {
+  "promptTokenCount": 2030,
+  "candidatesTokenCount": 509,
+  "totalTokenCount": 2539,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 928
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

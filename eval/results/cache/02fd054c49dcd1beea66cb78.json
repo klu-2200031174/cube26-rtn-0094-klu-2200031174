@@ -1,0 +1,69 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Brown hair claw clip",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "A brown matte hair claw clip with interlocking claw teeth is visible."
+    }
+   ],
+   "best_matching_sku": "SKU-CLAWCLIP",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "clip",
+    "status": "PRESENT",
+    "confidence": 0.98,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Hair claw clip is present."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The hair clip is loose without packaging but appears clean and undamaged with no visible signs of wear.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The hair clip exhibits no visible scratches, cracks, or heavy wear."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.6-flash",
+ "latency_ms": 8875,
+ "usage": {
+  "promptTokenCount": 1947,
+  "candidatesTokenCount": 353,
+  "totalTokenCount": 3078,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 845
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "thoughtsTokenCount": 778,
+  "serviceTier": "standard"
+ }
+}

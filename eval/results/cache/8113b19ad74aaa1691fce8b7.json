@@ -1,0 +1,80 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Frosted plastic water bottle with teal-to-orange gradient, motivational time markers, and teal flip-top lid",
+   "confidence": 0.98,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Teal-to-orange gradient frosted water bottle with time markers and teal flip-top lid with white latch button"
+    }
+   ],
+   "best_matching_sku": "SKU-WATERBOTTLE-FLIP",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "bottle",
+    "status": "PRESENT",
+    "confidence": 0.98,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Gradient frosted plastic water bottle is clearly visible"
+     }
+    ]
+   },
+   {
+    "part": "lid",
+    "status": "PRESENT",
+    "confidence": 0.98,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Teal flip-top lid is attached to the bottle"
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.92,
+   "rationale": "Item appears in clean, excellent condition without visible wear or damage, but original packaging/packaging seals are not present in the photo.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Bottle and lid are fully intact and show no visible scratches, dents, or signs of use"
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.6-flash",
+ "latency_ms": 8092,
+ "usage": {
+  "promptTokenCount": 2001,
+  "candidatesTokenCount": 286,
+  "totalTokenCount": 2896,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 899
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "thoughtsTokenCount": 609,
+  "serviceTier": "standard"
+ }
+}

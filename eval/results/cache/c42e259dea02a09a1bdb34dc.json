@@ -1,0 +1,68 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Flower vase",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The image shows a single piece decorative flower vase with blue and white pattern matching the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-VASE",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "vase",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The flower vase is clearly visible as a single piece."
+     }
+    ]
+   }
+  ],
+  "observed_state": "opened_unused",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Like New",
+   "confidence": 0.9,
+   "rationale": "The vase is intact and fully functional with no visible damage or wear, though it is unboxed.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The vase appears clean and free of cracks, chips, or scratches."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 3000,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 360,
+  "totalTokenCount": 2296,
+  "promptTokensDetails": [
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

@@ -1,0 +1,75 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Black zip pouch with a wristlet strap",
+   "confidence": 0.95,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "A black pouch with a zip closure is visible, matching the description of SKU-POUCH-BLK."
+    }
+   ],
+   "best_matching_sku": "SKU-POUCH-BLK",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "pouch",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The black pouch is present."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [
+   {
+    "description": "Minor dust and light smudges on the exterior surface of the pouch.",
+    "severity": "minor",
+    "image_index": 0
+   }
+  ],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.85,
+   "rationale": "The pouch is in fully functional condition with no structural damage, but shows minor cosmetic blemishes in the form of light dust and smudges on the exterior.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Light dust and smudges are visible on the black surface of the pouch."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash",
+ "latency_ms": 11844,
+ "usage": {
+  "promptTokenCount": 1944,
+  "candidatesTokenCount": 427,
+  "totalTokenCount": 2821,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 842
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "thoughtsTokenCount": 450,
+  "serviceTier": "standard"
+ }
+}

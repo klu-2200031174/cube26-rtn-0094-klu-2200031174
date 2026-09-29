@@ -1,0 +1,69 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": false,
+    "issue": "The image is completely black and dark, making the subject completely invisible."
+   }
+  ],
+  "identity": {
+   "verdict": "UNCERTAIN",
+   "observed_product": "unknown due to pitch black image",
+   "confidence": 0.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The image is entirely black and no product is visible."
+    }
+   ],
+   "best_matching_sku": "",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "vase",
+    "status": "NOT_VISIBLE",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "Image is completely black so no parts can be seen."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "UNCERTAIN",
+   "confidence": 1.0,
+   "rationale": "The image is entirely black and does not show the product or its condition.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "Completely black image."
+    }
+   ]
+  },
+  "unexpected_items": []
+ },
+ "model_version": "gemini-3.5-flash-lite",
+ "latency_ms": 2797,
+ "usage": {
+  "promptTokenCount": 1936,
+  "candidatesTokenCount": 358,
+  "totalTokenCount": 2294,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 834
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

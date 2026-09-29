@@ -1,0 +1,70 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MATCH",
+   "observed_product": "Wired in-ear earphones",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The item is a pair of white wired earbuds with a connector plug, matching the description of the ordered product."
+    }
+   ],
+   "best_matching_sku": "SKU-EARPHONES-WIRED",
+   "visible_identifiers": [
+    "white wired earbuds",
+    "connector plug"
+   ]
+  },
+  "components": [
+   {
+    "part": "earphones",
+    "status": "PRESENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The earphones are clearly visible in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "signs_of_use",
+  "damage": [],
+  "condition": {
+   "grade": "Used - Very Good",
+   "confidence": 0.8,
+   "rationale": "The earphones appear to be in good condition with no visible damage, but they are loose and not in original packaging, indicating they have been handled or used.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The cable is coiled and the earphones are loose on a surface, suggesting previous use."
+    }
+   ]
+  }
+ },
+ "model_version": "gemini-3.1-flash-lite",
+ "latency_ms": 9547,
+ "usage": {
+  "promptTokenCount": 2208,
+  "candidatesTokenCount": 394,
+  "totalTokenCount": 2602,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1106
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "serviceTier": "standard"
+ }
+}

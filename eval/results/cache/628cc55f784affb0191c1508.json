@@ -1,0 +1,82 @@
+{
+ "raw": {
+  "image_quality": [
+   {
+    "image_index": 0,
+    "usable": true
+   }
+  ],
+  "identity": {
+   "verdict": "MISMATCH",
+   "observed_product": "Pink octopus plush toy",
+   "confidence": 1.0,
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The image shows a pink octopus plush toy instead of the ordered Samsung phone charger."
+    }
+   ],
+   "best_matching_sku": "",
+   "visible_identifiers": []
+  },
+  "components": [
+   {
+    "part": "adapter",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The wall charging adapter is not present in the image."
+     }
+    ]
+   },
+   {
+    "part": "cable",
+    "status": "ABSENT",
+    "confidence": 1.0,
+    "evidence": [
+     {
+      "image_index": 0,
+      "observation": "The USB-C charging cable is not present in the image."
+     }
+    ]
+   }
+  ],
+  "observed_state": "uncertain",
+  "damage": [],
+  "condition": {
+   "grade": "UNCERTAIN",
+   "confidence": 1.0,
+   "rationale": "The returned item is a completely different product (a plush toy), so the condition of the ordered phone charger cannot be graded.",
+   "evidence": [
+    {
+     "image_index": 0,
+     "observation": "The image shows a plush toy instead of the ordered phone charger."
+    }
+   ]
+  },
+  "unexpected_items": [
+   "Pink octopus plush toy"
+  ]
+ },
+ "model_version": "gemini-3.5-flash",
+ "latency_ms": 40327,
+ "usage": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 444,
+  "totalTokenCount": 3266,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 986
+   },
+   {
+    "modality": "IMAGE",
+    "tokenCount": 1102
+   }
+  ],
+  "thoughtsTokenCount": 734,
+  "serviceTier": "standard"
+ }
+}
