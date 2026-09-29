@@ -436,12 +436,12 @@
     {
       "sku": "SKU-CHARGER-A",
       "asin": "B0HOME0001",
-      "title": "Phone charger A - white OPPO (adapter + USB-C cable)",
+      "title": "Phone charger A - white Samsung (adapter + white USB-C cable)",
       "category": "electronics_accessories",
-      "visual_description": "White OPPO-branded wall charging adapter with a separate white USB-C charging cable.",
+      "visual_description": "All-white Samsung wall charging adapter with a separate white USB-C charging cable.",
       "distinguishing_features": [
-        "white colour",
-        "OPPO branding on the adapter",
+        "white adapter AND white cable",
+        "Samsung branding on the adapter",
         "USB-C connector on the cable"
       ],
       "parts": [
@@ -464,12 +464,12 @@
     {
       "sku": "SKU-CHARGER-B",
       "asin": "B0HOME0002",
-      "title": "Phone charger B - black (adapter + USB-C cable)",
+      "title": "Phone charger B - OPPO (white adapter + black USB-C cable)",
       "category": "electronics_accessories",
-      "visual_description": "Black wall charging adapter with a separate USB-C charging cable.",
+      "visual_description": "White OPPO wall charging adapter with a separate BLACK USB-C charging cable.",
       "distinguishing_features": [
-        "black colour",
-        "no OPPO branding",
+        "white adapter with OPPO branding",
+        "BLACK cable",
         "USB-C connector on the cable"
       ],
       "parts": [
@@ -664,6 +664,32 @@
           "name": "soft toy",
           "essential": true,
           "replaceable": false
+        }
+      ],
+      "lookalike_skus": [],
+      "hygiene_sensitive": false
+    },
+    {
+      "sku": "SKU-WATERBOTTLE-FLIP",
+      "asin": "B0HOME0011",
+      "title": "Water bottle with flip lid",
+      "category": "kitchen",
+      "visual_description": "Frosted plastic water bottle with a teal-to-orange gradient and printed time markers (e.g. 'GREAT START'), with a teal flip-top lid that has a carry loop.",
+      "distinguishing_features": [
+        "teal-to-orange gradient",
+        "printed motivational time markers",
+        "teal flip-top lid with loop"
+      ],
+      "parts": [
+        {
+          "name": "bottle",
+          "essential": true,
+          "replaceable": false
+        },
+        {
+          "name": "lid",
+          "essential": true,
+          "replaceable": true
         }
       ],
       "lookalike_skus": [],
