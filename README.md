@@ -115,7 +115,18 @@ python -m unittest discover -s tests -v
 - `eval/` — held-out photo evaluation set, two-labeller labels and the harness (see `eval/README.md`). Results: `eval/results/report.md`.
 - `docs/sample_evidence_record.json` — an illustrative record (generated from scripted model output, not a real inspection).
 
-## Limitations (honest)
+## Assumptions & limitations
+
+### Assumptions
+
+- Each inspection is one unit from one known order line: the operator selects the order, so the expected SKU is known before the photos are checked.
+- Photos are taken at a returns bench: one overview with all contents laid out, plus close-ups of labels or damage where needed.
+- The catalogue's parts list defines what "complete" means for a SKU, including which parts are essential and which are replaceable.
+- Condition uses Amazon's published condition scale (`reference/condition_scale.json`) as the single grading standard.
+- Hygiene-sensitive items (cosmetics, earphones, combs) cannot be restocked unless they are factory-sealed or New.
+- A person is available to handle `pending_review` cases; the agent is designed to hand off, not to decide everything.
+
+### Limitations (honest)
 
 - Accuracy is bounded by the photos: a part hidden inside a closed case is `NOT_VISIBLE` → `UNCERTAIN`, by design. Expect a meaningful review rate.
 - Identity is visual only (no barcode/serial decoding). Look-alikes that differ only in text the camera cannot read will be `UNCERTAIN`.
